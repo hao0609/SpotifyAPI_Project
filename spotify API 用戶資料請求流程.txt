@@ -36,3 +36,6 @@ https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token
                 });
             }
         };
+
+4. Spotify API 資料串接 URL 架構
+
