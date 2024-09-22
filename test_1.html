@@ -50,7 +50,8 @@
                 }
             });
             const data = await response.json();
-
+            console.log(data);
+            
             // Step 4: Collect and count genres from the top artists
             const genreCount = {};
             data.items.forEach(artist => {
