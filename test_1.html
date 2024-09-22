@@ -58,8 +58,11 @@
             data.items.forEach(artist => {
                 artist.genres.forEach(genre => {
                     genreCount[genre] = (genreCount[genre] || 0) + 1;
+                    // console.log(genreCount);
                 });
             });
+            console.log(genreCount);
+            
 
             // Step 5: Sort genres by count and get the top 10
             const topGenres = Object.keys(genreCount)
