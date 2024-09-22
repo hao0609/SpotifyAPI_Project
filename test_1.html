@@ -14,22 +14,30 @@
     <div id="result"></div>
 
     <script>
-        const clientId = '6d7c9aa0d8a440f5ba9bfd274e0a7ff0';  // Replace with your Spotify Client ID
-        const redirectUri = 'https://hao0609.github.io/SpotifyAPI_Project/test_1.html';  // Replace with your redirect URI
-        const scopes = 'user-top-read';  // Spotify scope to access user's top tracks and artists
+        // Spotify API Client ID
+        const clientId = '6d7c9aa0d8a440f5ba9bfd274e0a7ff0';
+        // 回傳授權碼的 URL
+        const redirectUri = 'https://hao0609.github.io/SpotifyAPI_Project/test_1.html';  
+        // spotify API 授權範圍項目
+        const scopes = 'user-top-read user-read-recently-played';  
 
-        // Step 1: Redirect user to Spotify authorization page
+        // 步驟 1: 引導用戶帳號登入並取得授權碼
         document.getElementById('login').addEventListener('click', () => {
             const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scopes)}`;
+            // 用戶請求 URL
             window.location.href = authUrl;
         });
 
-        // Step 2: Extract the access token from the URL after user authorizes
+        // Step 2: 擷取 URL 回傳的授權碼
         function getAccessToken() {
+            // hash 為 擷取 URL 後方描點資料
             const hash = window.location.hash;
+            console.log("hash 是" +hash);
+            
             if (hash) {
                 const token = new URLSearchParams(hash.substring(1)).get('access_token');
                 return token;
+                console.log("token 是" +token);
             }
             return null;
         }
