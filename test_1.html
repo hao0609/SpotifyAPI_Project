@@ -71,6 +71,8 @@
         // Check for access token on page load and display "Get Top Genres" button
         window.onload = () => {
             const accessToken = getAccessToken();
+            console.log(accessToken);
+            
             if (accessToken) {
                 document.getElementById('login').style.display = 'none';
                 document.getElementById('get-genres').style.display = 'block';
