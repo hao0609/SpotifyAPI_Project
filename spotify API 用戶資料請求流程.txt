@@ -1,0 +1,38 @@
+1.配置授權碼請求 URL 與引道用戶登入帳戶回傳授權碼
+
+配置我的 client ID ：6d7c9aa0d8a440f5ba9bfd274e0a7ff0
+配置回傳授權碼的 URL:　https://hao0609.github.io/SpotifyAPI_Project/test.html
+配置 Scope spotify API 授權範圍項目: user-top-read user-read-recently-played
+
+配置索取授權碼請求 URL ：
+
+※encodeURIComponent為字符轉 URL 編碼字符
+https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scopes)}`;
+
+登入按鈕監聽點擊事件並 URL 載入
+        document.getElementById('login').addEventListener('click', () => {
+            const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scopes)}`;
+            // 用戶請求 URL
+            window.location.href = authUrl;
+        });
+
+
+2.用戶登入 Spotify 帳戶與取得授權碼回傳引導到原頁面
+
+3. 引導到原頁面載入後 window.onload 執行 getAccessToken function 擷取 URL 授權碼並傳送至 accessToken 變數
+   IF 判斷若授權碼有東西時，監聽其他按鈕事件並傳送 accessToken 給其他 function 做調用
+
+
+        window.onload = () => {
+            const accessToken = getAccessToken();
+            
+            if (accessToken) {
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('get-genres').style.display = 'block';
+                
+                // Step 6: Attach click event to get top genres
+                document.getElementById('get-genres').addEventListener('click', () => {
+                    getTopGenres(accessToken);
+                });
+            }
+        };
