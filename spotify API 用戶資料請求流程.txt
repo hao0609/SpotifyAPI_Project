@@ -39,3 +39,9 @@ https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token
 
 4. Spotify API 資料串接 URL 架構
 
+前 50 名歌手
+time_range - 時間間隔 (long_term:總時間, medium_term: 6個月,short_term:四周 )
+limit : 資料數 (最大 50)
+offset : 資料從第幾個開始
+
+https://api.spotify.com/v1/me/top/artists?time_range=long_term&limit=50&offset=0
