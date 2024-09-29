@@ -418,8 +418,9 @@
     </div>
     <script async src="authorization.js"></script>
     <script>
-     
-        	const scene= document.getElementById('scene');
+        window.addEventListener('load',doFirst)
+          function doFirst() {
+            const scene= document.getElementById('scene');
             const parallax = new Parallax(scene,{relativeInput:true,});
 
             // 縮放 position 位置
@@ -458,6 +459,8 @@
             let img_10_H = document.querySelector('.img_10').style.left = (10/parentWidth) * 100+'%'
 
     
+          }
+        	
     </script>
 </body>
 </html>
