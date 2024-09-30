@@ -299,6 +299,43 @@
             transform: translateY(-20px); /* 從上方開始 */
             animation: fadeInDown 2s ease-in-out infinite;
         }
+        .rank{
+
+            margin: 100px 50px
+        }
+        .rank_title_box{
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            height: 150px;
+        }
+        .top_title_box{
+            position: relative;
+            display: flex;
+            justify-content: flex-start;
+            height: 150px;
+        }
+        .rank_tittle_top{
+            position: absolute;
+            right: 20px;
+
+        }
+        .rank_tittle_bottom{
+            position: absolute;
+            top: 20px;
+            color: rgb(205, 205, 205);
+            z-index: -1;
+        }
+        .top_tittle_top{
+            position: absolute;
+            left: 20px;
+        }
+        .top_tittle_bottom{
+            position: absolute;
+            top: 20px;
+            color: rgb(205, 205, 205);
+            z-index: -1;
+        }
 
         @keyframes fadeInDown {
             0% {
@@ -315,6 +352,73 @@
             }
         }
 
+        .select_box{
+            display: flex;
+            justify-content: center;
+            margin: 50px;
+
+        }
+        .option_box{
+            text-align: center;
+            padding-right: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            font-weight:  700;
+            width: 150px;
+            height: 50px;
+            background-color: #1ed660;
+            border: none;
+            line-height: 50px;
+            border-radius: 100px;
+            box-shadow: 1px 1px 11px #8e8e8e;
+            outline: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' fill-rule='evenodd' d='M14.207 1.707L13.5 1l-6 6l-6-6l-.707.707l6.353 6.354h.708zm0 6L13.5 7l-6 6l-6-6l-.707.707l6.353 6.354h.708z' clip-rule='evenodd'/%3E%3C/svg%3E");
+            background-repeat: no-repeat, repeat;
+            background-position: right .7em top 50%, 0 0;
+            background-size: .65em auto, 100%;
+
+        }
+        option{
+            
+            font-size: 30px;
+            font-weight: bold;
+            font-weight:  700;
+        }
+        .contury_box{
+            margin-right: 100px;
+        }
+
+        .top1_box{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin:0px 50px;
+            background-color: #e8e8e8;
+        }
+
+        .top1_img{
+            width: 130px;
+            height: 130px;
+            background-color: #000000;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .rank_num{
+            font-size: 24px;
+        }
+        .songname{
+            font-size: 32px;
+        }
+        .artistname{
+            color: #857E7E;
+        }
+        .margin_50{
+            margin-top: 50px;
+        }
+        .showmore_btn{
+            background-color: transparent;
+        }
     </style>
     <title>Spotify API Project</title>
 </head>
@@ -410,14 +514,215 @@
         </div>
 
         <div class="rank">
-            <div>
-                <div class="rank_tittle h1">最新熱門歌曲</div>
-                <div class="rank_tittle h1 grey">最新熱門歌曲</div>
+             <div class="rank_title_box">
+                    <div class="rank_tittle h1 rank_tittle_top">最新熱門歌曲</div>
+                    <div class="rank_tittle h1 rank_tittle_bottom">最新熱門歌曲</div>
+            </div>
+
+            <div class="top_title_box">
+                <div class="rank_tittle h1 top_tittle_top">Top 50</div>
+                <div class="rank_tittle h1 top_tittle_bottom">Top 50</div>
             </div>
             
-            <div class="top_tittle h1">Top 50</div>
-
+            
         </div>     
+
+        <div class="select_box">
+            <div class="contury_box">
+                <select name="contury" id="contury" class="option_box">
+                    <option value="global" >全球</option>
+                    <option value="taiwan">台灣</option>
+                  </select>
+            </div>
+            <div class="time_box">
+                <select name="time" id="time" class="option_box">
+                    <option value="today" >本日</option>
+                    <option value="week">本周</option>
+                  </select>
+            </div>
+        </div>
+
+        <div class="rank_top50">
+            <div class="top1_box">
+                <div class="top1_img">
+
+                </div>
+                <div class="rank_num">
+                    1
+                </div>
+                <div class="song">
+                    <div class="songname">SongName</div>
+                    <div class="artistname">ArtistName</div>
+                </div>
+
+                <div class="go_listen">
+                    <button id="login_btn" class="login_btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
+                </div>
+            </div>
+
+            <div class="top1_box margin_50">
+                <div class="top1_img">
+
+                </div>
+                <div class="rank_num">
+                    1
+                </div>
+                <div class="song">
+                    <div class="songname">SongName</div>
+                    <div class="artistname">ArtistName</div>
+                </div>
+
+                <div class="go_listen">
+                    <button id="login_btn" class="login_btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
+                </div>
+            </div>
+
+            <div class="top1_box margin_50">
+                <div class="top1_img">
+
+                </div>
+                <div class="rank_num">
+                    1
+                </div>
+                <div class="song">
+                    <div class="songname">SongName</div>
+                    <div class="artistname">ArtistName</div>
+                </div>
+
+                <div class="go_listen">
+                    <button id="login_btn" class="login_btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
+                </div>
+            </div>
+
+            <div class="top1_box margin_50">
+                <div class="top1_img">
+
+                </div>
+                <div class="rank_num">
+                    1
+                </div>
+                <div class="song">
+                    <div class="songname">SongName</div>
+                    <div class="artistname">ArtistName</div>
+                </div>
+
+                <div class="go_listen">
+                    <button id="login_btn" class="login_btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
+                </div>
+            </div>
+            <div class="top1_box margin_50">
+                <div class="top1_img">
+
+                </div>
+                <div class="rank_num">
+                    1
+                </div>
+                <div class="song">
+                    <div class="songname">SongName</div>
+                    <div class="artistname">ArtistName</div>
+                </div>
+
+                <div class="go_listen">
+                    <button id="login_btn" class="login_btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
+                </div>
+            </div>
+            <div class="top1_box margin_50">
+                <div class="top1_img">
+
+                </div>
+                <div class="rank_num">
+                    1
+                </div>
+                <div class="song">
+                    <div class="songname">SongName</div>
+                    <div class="artistname">ArtistName</div>
+                </div>
+
+                <div class="go_listen">
+                    <button id="login_btn" class="login_btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
+                </div>
+            </div>
+            <div class="top1_box margin_50">
+                <div class="top1_img">
+
+                </div>
+                <div class="rank_num">
+                    1
+                </div>
+                <div class="song">
+                    <div class="songname">SongName</div>
+                    <div class="artistname">ArtistName</div>
+                </div>
+
+                <div class="go_listen">
+                    <button id="login_btn" class="login_btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
+                </div>
+            </div>
+            <div class="top1_box margin_50">
+                <div class="top1_img">
+
+                </div>
+                <div class="rank_num">
+                    1
+                </div>
+                <div class="song">
+                    <div class="songname">SongName</div>
+                    <div class="artistname">ArtistName</div>
+                </div>
+
+                <div class="go_listen">
+                    <button id="login_btn" class="login_btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
+                </div>
+            </div>
+            <div class="top1_box margin_50">
+                <div class="top1_img">
+
+                </div>
+                <div class="rank_num">
+                    1
+                </div>
+                <div class="song">
+                    <div class="songname">SongName</div>
+                    <div class="artistname">ArtistName</div>
+                </div>
+
+                <div class="go_listen">
+                    <button id="login_btn" class="login_btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
+                </div>
+            </div>
+            <div class="top1_box margin_50">
+                <div class="top1_img">
+
+                </div>
+                <div class="rank_num">
+                    1
+                </div>
+                <div class="song">
+                    <div class="songname">SongName</div>
+                    <div class="artistname">ArtistName</div>
+                </div>
+
+                <div class="go_listen">
+                    <button id="login_btn" class="login_btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
+                </div>
+
+
+
+            </div>
+            <!-- 
+            <div class="top1_box margin_50 showmore_btn">
+                <button id="login_btn" class="login_btn"><h3 class="margin_btn"> Show More </h3></button>   
+            </div>
+
+            <div class="frame-20">
+                <div class="tiba-me-tiba-me"> 本網站為緯育TibaMe【第 一 期】前端工程師專業技術養成在職培訓班學員作品<br />僅供學習、展示之用途。<br />若有任何相關侵權問題，請聯繫 緯育TibaMe ，將立即下架該網站。 </div>
+            </div> -->
+            
+
+
+
+
+        </div>
 
 
     </div>
