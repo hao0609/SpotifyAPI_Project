@@ -395,7 +395,7 @@
             font-weight:  700;
             width: 150px;
             height: 50px;
-            background-color: #1ed660;
+            background-color: #ffffff;
             border: none;
             line-height: 50px;
             border-radius: 100px;
@@ -429,7 +429,7 @@
         .top1_img{
             width: 130px;
             height: 130px;
-            background-color: #000000;
+            /* background-color: #000000; */
             margin-top: 10px;
             margin-bottom: 10px;
         }
@@ -574,6 +574,25 @@
         </div>
 
         <div class="rank_top50">
+            <div class="top1_box margin_50">
+                <div class="top1_img" style="background-image: url(https://i.scdn.co/image/ab67616d0000b27382ea2e9e1858aa012c57cd45);">
+                   
+                </div>
+                <div class="rank_num">
+                    1
+                </div>
+                <div class="song">
+                    <div class="songname">SongName</div>
+                    <div class="artistname">ArtistName</div>
+                </div>
+
+                <div class="go_listen">
+                    <button id="login_btn" class="login_btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="rank_top50">
             <div class="top1_box">
                 <div class="top1_img">
 
@@ -740,20 +759,21 @@
 
 
             </div>
-            <!-- 
+            
+            
             <div class="top1_box margin_50 showmore_btn">
                 <button id="login_btn" class="login_btn"><h3 class="margin_btn"> Show More </h3></button>   
             </div>
 
             <div class="frame-20">
                 <div class="tiba-me-tiba-me"> 本網站為緯育TibaMe【第 一 期】前端工程師專業技術養成在職培訓班學員作品<br />僅供學習、展示之用途。<br />若有任何相關侵權問題，請聯繫 緯育TibaMe ，將立即下架該網站。 </div>
-            </div> -->
+            </div>
             
 
 
 
 
-        </div>
+        </div> -->
 
 
     </div>
@@ -874,6 +894,127 @@
         });
 
 
+
+    </script>
+
+    <script>
+
+
+        const clientId = '6d7c9aa0d8a440f5ba9bfd274e0a7ff0';
+        const clientSecret = '439e391e71ae4bf68f1b99a7191dfaa8';
+        const encodedCredentials = btoa(`${clientId}:${clientSecret}`);
+
+        // 請求 API Token
+        async function getSpotifyToken(API_token) {
+        const response = await fetch('https://accounts.spotify.com/api/token', {
+            method: 'POST',
+            headers: {
+            'Authorization': `Basic ${encodedCredentials}`, // Basic 認證
+            'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+            grant_type: 'client_credentials' // 需要 URL 編碼
+            })
+        });
+        const data = await response.json();
+        API_token = data.access_token
+        return API_token;
+        }   
+
+
+        // 查詢 Spotify 播放列表 API
+        const Global_Top50_Playlist = async () => {
+        // Spotify 播放列表的 ID
+        const token = await getSpotifyToken();
+        let playlistId = '37i9dQZEVXbMDoHDwVN2tF';
+        const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
+                 headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            const playlistData = await response.json();
+            console.log(playlistData.tracks.items[0]);
+            //歌手名稱 
+            // console.log(playlistData.tracks.items[0].track.artists[1].name);
+            //歌曲圖片 
+            // console.log(playlistData.tracks.items[0].track.album.images[0].url);
+            //歌曲連結
+            // console.log(playlistData.tracks.items[0].track.external_urls.spotify);
+            let trackList = playlistData.tracks.items
+
+            let artistNames =''
+            
+
+            for (let i = 0; i < trackList.length; i++) {
+               
+                    let artists = trackList[i].track.artists
+                    // console.log(artists); 
+
+                    let images_url =  trackList[i].track.album.images[0].url
+
+                    let rank_num = i+1
+
+                    let song_url = trackList[i].track.external_urls.spotify
+        
+                    // 判斷歌手數量超過1時，字串相加並用逗號隔開
+                    if (artists.length > 1) {
+                        
+                         artistNames = artists.map(artist => artist.name).join(', ');
+                        
+                        // console.log(artistNames);
+                        
+                        }
+                     else{
+                         artistNames =  artists.map(artist => artist.name).join('');
+                        //  console.log(artistNames);  
+                     }
+
+
+                        console.log(artistNames);  
+                        console.log(images_url); 
+                        console.log(rank_num); 
+                        console.log(song_url); 
+
+
+
+                        const rank_box = document.querySelector('.rank_top50')
+
+                        rank_box.innerHTML = `
+                        
+                            <div class="top1_box margin_50">
+                                <div class="top1_img"> </div>
+                                <div class="rank_num">
+                                    1
+                                </div>
+                                <div class="song">
+                                    <div class="songname">SongName</div>
+                                    <div class="artistname">ArtistName</div>
+                                </div>
+
+                                <div class="go_listen">
+                                    <button id="login_btn" class="login_btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
+                                </div>
+                            </div>
+                        
+                        
+                        `
+                     
+                }
+                
+            
+
+            
+
+            // return playlistData;
+            
+            }   
+        
+
+        Global_Top50_Playlist()
+        
+        
+        
 
     </script>
 </body>
