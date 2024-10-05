@@ -7,6 +7,24 @@
     <script src="source/parallax.js"></script>
     <script src="source/parallax.min.js"></script>
 
+
+    <!-- GSAP -->
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Observer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/MotionPathPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EaselPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/PixiPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+    <!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->    
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EasePack.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+
+
     <!-- Noto Sans 字體 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -299,6 +317,10 @@
             transform: translateY(-20px); /* 從上方開始 */
             animation: fadeInDown 2s ease-in-out infinite;
         }
+        .tittle{
+            transform: translateY(-200px); /* 初始位置 */
+            opacity: 0;
+        }
         .rank{
 
             margin: 100px 50px
@@ -308,6 +330,7 @@
             display: flex;
             justify-content: flex-end;
             height: 150px;
+            overflow: hidden;
         }
         .top_title_box{
             position: relative;
@@ -317,23 +340,29 @@
         }
         .rank_tittle_top{
             position: absolute;
-            right: 20px;
+            right: 15px;
+            opacity: 0;
+            transform: translate(600px, 150px); 
 
         }
         .rank_tittle_bottom{
             position: absolute;
-            top: 20px;
+            top: 15px;
             color: rgb(205, 205, 205);
+            transform: translate(600px, 150px); 
             z-index: -1;
+
         }
         .top_tittle_top{
             position: absolute;
             left: 20px;
+            transform: translate(-600px, 150px); 
         }
         .top_tittle_bottom{
             position: absolute;
             top: 20px;
             color: rgb(205, 205, 205);
+            transform: translate(-600px, 150px); 
             z-index: -1;
         }
 
@@ -462,6 +491,18 @@
 
             </div>
 
+            <div class="down">
+                <div class="icon-container">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M14.207 1.707L13.5 1L7.50003 7L1.50003 1L0.79303 1.707L7.14603 8.061H7.85403L14.207 1.707ZM14.207 7.707L13.5 7L7.50003 13L1.50003 7L0.79303 7.707L7.14603 14.061H7.85403L14.207 7.707Z" fill="black"/>
+                        </svg>
+                    </div>
+                </div>
+            
+            <h3>下滑查看最新熱門排行榜</h3> 
+            </div>
+
             <ul id="scene" class="scene">
                 
                 <div class="overlay">  </div>
@@ -499,17 +540,7 @@
             
             </ul>
             
-            <div class="down">
-                <div class="icon-container">
-                    <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16" fill="none">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M14.207 1.707L13.5 1L7.50003 7L1.50003 1L0.79303 1.707L7.14603 8.061H7.85403L14.207 1.707ZM14.207 7.707L13.5 7L7.50003 13L1.50003 7L0.79303 7.707L7.14603 14.061H7.85403L14.207 7.707Z" fill="black"/>
-                        </svg>
-                    </div>
-                </div>
-            
-            <h3>下滑查看最新熱門排行榜</h3> 
-            </div>
+
 
         </div>
 
@@ -771,6 +802,79 @@
     
           }
         	
+    </script>
+
+    <script>
+            gsap.to(".tittle", { 
+                duration: 3, 
+                opacity: 1, 
+                y: 0, 
+                ease: "bounce.out" 
+            });
+        // gsap.to(".rank_title_box", {rotation: 360, duration: 1});
+
+        
+
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to(".rank_tittle_top", { 
+            duration: 1, 
+            opacity: 1, 
+            x: "0vw", // 向左移動
+            y: "0vh", // 向上移動
+            ease: "power2.out", // 平滑出現效果
+            scrollTrigger: {
+                trigger: ".down", // 滾動到此元素時觸發動畫
+                start: "top 300px", // 當 .trigger 到達視窗中心時開始動畫
+                toggleActions: "play none none reverse" // 定義滾動觸發的行為
+            }
+        });
+
+
+        gsap.to(".rank_tittle_bottom", { 
+            duration: 1.5, 
+            opacity: 1, 
+            x: "0vw", // 向左移動
+            y: "0vh", // 向上移動
+            ease: "power2.out", // 平滑出現效果
+            scrollTrigger: {
+                trigger: ".down", // 滾動到此元素時觸發動畫
+                start: "top 320px", // 當 .trigger 到達視窗中心時開始動畫
+                toggleActions: "play none none reverse" // 定義滾動觸發的行為
+            }
+        });
+
+
+        gsap.to(".top_tittle_top", { 
+            duration: 1, 
+            opacity: 1, 
+            x: "0vw", // 向左移動
+            y: "0vh", // 向上移動
+            ease: "power2.out", // 平滑出現效果
+            scrollTrigger: {
+                trigger: ".down", // 滾動到此元素時觸發動畫
+                start: "top 240px", // 當 .trigger 到達視窗中心時開始動畫
+                toggleActions: "play none none reverse" // 定義滾動觸發的行為
+            }
+        });
+
+
+        gsap.to(".top_tittle_bottom", { 
+            duration: 1.5, 
+            opacity: 1, 
+            x: "0vw", // 向左移動
+            y: "0vh", // 向上移動
+            ease: "power2.out", // 平滑出現效果
+            scrollTrigger: {
+                trigger: ".down", // 滾動到此元素時觸發動畫
+                start: "top 230px", // 當 .trigger 到達視窗中心時開始動畫
+                toggleActions: "play none none reverse" // 定義滾動觸發的行為
+            }
+        });
+
+
+
     </script>
 </body>
 </html>
