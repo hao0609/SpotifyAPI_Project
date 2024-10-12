@@ -6,7 +6,7 @@
 
     <script src="source/parallax.js"></script>
     <script src="source/parallax.min.js"></script>
-    <script async src="authorization.js"></script>
+
 
     <!-- GSAP -->
 
@@ -555,105 +555,7 @@
                     </nav>
                 </div>
             </header>
-            <div class="title_box">
-
-                    <div class="tittle">
-                            <h1>您似乎很懂聽 ?</h1>
-                            <h3>點擊 Log in 以登錄您的 Spotify 帳戶，並查看您的音樂品味分析<br>
-                            透過分析結果立即向您的朋友炫耀您獨特而精緻的音樂品味。</h3>
-                    </div>
-                    <div class="login">
-                        <a  id="login_btn" class="btn login_btn"><h3 class="margin_btn">Log in</h3></a>
-                    </div>
-
-            </div>
-
-            <div class="down">
-                <div class="icon-container">
-                    <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16" fill="none">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M14.207 1.707L13.5 1L7.50003 7L1.50003 1L0.79303 1.707L7.14603 8.061H7.85403L14.207 1.707ZM14.207 7.707L13.5 7L7.50003 13L1.50003 7L0.79303 7.707L7.14603 14.061H7.85403L14.207 7.707Z" fill="black"/>
-                        </svg>
-                    </div>
-                </div>
-            
-            <h3>下滑查看最新熱門排行榜</h3> 
-            </div>
-
-            <ul id="scene" class="scene">
-                
-                <div class="overlay">  </div>
-                <li data-depth="0.0" class="layer box"></li>
-                <li data-depth="-0.125555" class="layer">
-                    <div class="img_1 wave-back"></div>
-                </li>
-                <li data-depth="0.35" class="layer">
-                    <div class="img_2 wave-front"></div>
-                </li>
-                <li data-depth="-0.225555" class="layer">
-                    <div class="img_3 wave-front"></div>
-                </li>
-                <li data-depth="0.55" class="layer">
-                    <div class="img_4 wave-back"></div>
-                </li>
-                <li data-depth="-0.375555" class="layer">
-                    <div class="img_5 wave-back"></div>
-                </li>
-                <li data-depth="0.75" class="layer">
-                    <div class="img_6 wave-front"></div>
-                </li>
-                <li data-depth="-0.475555" class="layer">
-                    <div class="img_7 wave-back"></div>
-                </li>
-                <li data-depth="0.95" class="layer">
-                    <div class="img_8 wave-back"></div>
-                </li>
-                <li data-depth="-0.375555" class="layer">
-                    <div class="img_9 wave-front"></div>
-                </li>
-                <li data-depth="0.65" class="layer">
-                    <div class="img_10 wave-front"></div>
-                </li>
-            
-            </ul>
-            
-
-
-        </div>
-
-        <div class="rank">
-             <div class="rank_title_box">
-                    <div class="rank_tittle h1 rank_tittle_top">最新熱門歌曲</div>
-                    <div class="rank_tittle h1 rank_tittle_bottom">最新熱門歌曲</div>
-            </div>
-
-            <div class="top_title_box">
-                <div class="rank_tittle h1 top_tittle_top">Top 50</div>
-                <div class="rank_tittle h1 top_tittle_bottom">Top 50</div>
-            </div>
-            
-            
-        </div>     
-
-        <div class="select_box">
-            <div class="contury_box">
-                <select name="country" id="country" class="option_box" onchange="change_option()">
-                    <option value="global" selected>全球</option>
-                    <option value="taiwan">台灣</option>
-                  </select>
-            </div>
-            <div class="time_box">
-                <select name="time" id="time" class="option_box" onchange="change_option()">
-                    <option value="today" selected>本日</option>
-                    <option value="week" >本周</option>
-                  </select>
-            </div>
-        </div>
-
-        <div class="rank_top50">
-
-            
-        </div>
+           
 
         <footer>
 
@@ -666,127 +568,15 @@
 
 
     </div>
-    
+    <script async src="authorization.js"></script>
     <script>
         window.addEventListener('load',doFirst)
           function doFirst() {
-            const scene= document.getElementById('scene');
-            const parallax = new Parallax(scene,{relativeInput:true,});
-
-            // 縮放 position 位置
-            let parent = document.querySelector('.wrapper');
-            let parentWidth = parent.offsetWidth;
-            let parentHeight = parent.offsetHeight;  
-            console.log(parentWidth,parentHeight);
-                     
-            
-            let img_1_W = document.querySelector('.img_1').style.top = (225/parentHeight) * 100+'%'
-            let img_1_H = document.querySelector('.img_1').style.left = (550/parentWidth) * 100+'%'
-
-            let img_2_W = document.querySelector('.img_2').style.top = (170/parentHeight) * 100+'%'
-            let img_2_H = document.querySelector('.img_2').style.left = (857/parentWidth) * 100+'%'
-
-            let img_3_W = document.querySelector('.img_3').style.top = (270/parentHeight) * 100+'%'
-            let img_3_H = document.querySelector('.img_3').style.left = (1211/parentWidth) * 100+'%'
-
-            let img_4_W = document.querySelector('.img_4').style.top = (885/parentHeight) * 100+'%'
-            let img_4_H = document.querySelector('.img_4').style.left = (1270/parentWidth) * 100+'%'
-
-            let img_5_W = document.querySelector('.img_5').style.top = (950/parentHeight) * 100+'%'
-            let img_5_H = document.querySelector('.img_5').style.left = (968/parentWidth) * 100+'%'
-
-            let img_6_W = document.querySelector('.img_6').style.top = (875/parentHeight) * 100+'%'
-            let img_6_H = document.querySelector('.img_6').style.left = (641/parentWidth) * 100+'%'
-
-            let img_7_W = document.querySelector('.img_7').style.top = (900/parentHeight) * 100+'%'
-            let img_7_H = document.querySelector('.img_7').style.left = (299/parentWidth) * 100+'%'
-
-            let img_8_W = document.querySelector('.img_8').style.top = (955/parentHeight) * 100+'%'
-            let img_8_H = document.querySelector('.img_8').style.left = (50/parentWidth) * 100+'%'
-
-            let img_9_W = document.querySelector('.img_9').style.top = (135/parentHeight) * 100+'%'
-            let img_9_H = document.querySelector('.img_9').style.left = (250/parentWidth) * 100+'%'
-
-            let img_10_W = document.querySelector('.img_10').style.top = (225/parentHeight) * 100+'%'
-            let img_10_H = document.querySelector('.img_10').style.left = (10/parentWidth) * 100+'%'
-
-    
           }
         	
     </script>
 
-    <script>
-            gsap.to(".tittle", { 
-                duration: 3, 
-                opacity: 1, 
-                y: 0, 
-                ease: "bounce.out" 
-            });
-        // gsap.to(".rank_title_box", {rotation: 360, duration: 1});
 
-        
-
-
-        gsap.registerPlugin(ScrollTrigger);
-
-        gsap.to(".rank_tittle_top", { 
-            duration: 1, 
-            opacity: 1, 
-            x: "0vw", // 向左移動
-            y: "0vh", // 向上移動
-            ease: "power2.out", // 平滑出現效果
-            scrollTrigger: {
-                trigger: ".down", // 滾動到此元素時觸發動畫
-                start: "top 300px", // 當 .trigger 到達視窗中心時開始動畫
-                toggleActions: "play none none reverse" // 定義滾動觸發的行為
-            }
-        });
-
-
-        gsap.to(".rank_tittle_bottom", { 
-            duration: 1.5, 
-            opacity: 1, 
-            x: "0vw", // 向左移動
-            y: "0vh", // 向上移動
-            ease: "power2.out", // 平滑出現效果
-            scrollTrigger: {
-                trigger: ".down", // 滾動到此元素時觸發動畫
-                start: "top 320px", // 當 .trigger 到達視窗中心時開始動畫
-                toggleActions: "play none none reverse" // 定義滾動觸發的行為
-            }
-        });
-
-
-        gsap.to(".top_tittle_top", { 
-            duration: 1, 
-            opacity: 1, 
-            x: "0vw", // 向左移動
-            y: "0vh", // 向上移動
-            ease: "power2.out", // 平滑出現效果
-            scrollTrigger: {
-                trigger: ".down", // 滾動到此元素時觸發動畫
-                start: "top 240px", // 當 .trigger 到達視窗中心時開始動畫
-                toggleActions: "play none none reverse" // 定義滾動觸發的行為
-            }
-        });
-
-
-        gsap.to(".top_tittle_bottom", { 
-            duration: 1.5, 
-            opacity: 1, 
-            x: "0vw", // 向左移動
-            y: "0vh", // 向上移動
-            ease: "power2.out", // 平滑出現效果
-            scrollTrigger: {
-                trigger: ".down", // 滾動到此元素時觸發動畫
-                start: "top 230px", // 當 .trigger 到達視窗中心時開始動畫
-                toggleActions: "play none none reverse" // 定義滾動觸發的行為
-            }
-        });
-
-
-
-    </script>
 
     <script>
 
