@@ -72,7 +72,7 @@
             margin: 0;
         }
         .wrapper {
-            height: 100vh;
+            height: 100%;
             width: 100%;
         }
         .content_box{
@@ -223,13 +223,11 @@
             align-items: flex-end;
         }
         .btn{
-
+            color: #000000;
             background-color: #1ed660;
             border: none;
             line-height: 20px;
             border-radius: 25px;
-            width: 8rem;
-            height: 4rem;
         }
         .btn:hover{
             cursor: pointer;
@@ -237,9 +235,33 @@
             border-radius: 100px;
             color: white;
         }
+        .login_btn{
+            padding-top: 10px;
+            padding-left: 20px;
+            padding-bottom: 10px;
+            padding-right: 20px;
+            display: flex;
+            text-decoration: none;    
+        }
+        .listen_btn{
+
+            padding-top: 10px;
+            padding-left: 10px;
+            padding-bottom: 10px;
+            padding-right: 10px;
+            display: flex;
+            text-decoration: none;    
+        }
 
         .show_more_btn{
-            width: 10rem;
+            padding-top: 10px;
+            padding-left: 10px;
+            padding-bottom: 10px;
+            padding-right: 10px;
+            display: flex;
+            text-decoration: none;  
+            width: fit-content;
+            margin: auto;
         }
 
         .rank_tittle{
@@ -469,6 +491,39 @@
         .showmore_btn{
             background-color: transparent;
         }
+        footer{
+
+            display: flex;
+            flex-direction: column;
+            margin-top: 5%;
+            padding: 0 5%;
+            background-color: #000000;
+            color: #ffffff;
+
+        }
+        .info_from{
+            display: flex;
+            margin-left: 10rem;
+            margin-right: 10rem;
+            padding: 2rem;
+            text-align: center;
+            align-items: center;
+            
+        }
+        .info{
+            text-align: center;
+            padding: 2rem;
+        }
+        .info_text{
+            width: 50%;
+        }
+        .info_icon{
+            width: 50%;
+        }
+        img{
+            width: 50%;
+        }
+
         
     </style>
     <title>Spotify API Project</title>
@@ -508,7 +563,7 @@
                             透過分析結果立即向您的朋友炫耀您獨特而精緻的音樂品味。</h3>
                     </div>
                     <div class="login">
-                        <button id="btn" class="btn"><h3 class="margin_btn">Log in</h3></button>
+                        <a href="" id="login_btn" class="btn login_btn"><h3 class="margin_btn">Log in</h3></a>
                     </div>
 
             </div>
@@ -582,225 +637,32 @@
 
         <div class="select_box">
             <div class="contury_box">
-                <select name="contury" id="contury" class="option_box">
-                    <option value="global" >全球</option>
+                <select name="country" id="country" class="option_box" onchange="change_option()">
+                    <option value="global" selected>全球</option>
                     <option value="taiwan">台灣</option>
                   </select>
             </div>
             <div class="time_box">
-                <select name="time" id="time" class="option_box">
-                    <option value="today" >本日</option>
-                    <option value="week">本周</option>
+                <select name="time" id="time" class="option_box" onchange="change_option()">
+                    <option value="today" selected>本日</option>
+                    <option value="week" >本周</option>
                   </select>
             </div>
         </div>
 
         <div class="rank_top50">
-            <!-- <div class="top1_box margin_50">
-                <div class="top1_img" style="background-image: url(https://i.scdn.co/image/ab67616d0000b27382ea2e9e1858aa012c57cd45);">
-                   
-                </div>
-                <div class="rank_num">
-                    1
-                </div>
-                <div class="song">
-                    <div class="songname">SongName</div>
-                    <div class="artistname">ArtistName</div>
-                </div>
 
-                <div class="go_listen">
-                    <button id="btn" class="btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
-                </div>
-            </div> -->
-
-            <!-- <div class="show_more">
-                <button id="show_more_btn btn" class="show_more_btn btn"><h3 class="margin_btn">Show More</h3></button>                   
-            </div> -->
             
         </div>
 
-        <!-- <div class="rank_top50">
-            <div class="top1_box">
-                <div class="top1_img">
+        <footer>
 
-                </div>
-                <div class="rank_num">
-                    1
-                </div>
-                <div class="song">
-                    <div class="songname">SongName</div>
-                    <div class="artistname">ArtistName</div>
-                </div>
-
-                <div class="go_listen">
-                    <button id="btn" class="btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
-                </div>
+            <div class="info"> 本網站為緯育TibaMe【第 一 期】前端工程師專業技術養成在職培訓班學員作品<br />僅供學習、展示之用途。<br />若有任何相關侵權問題，請聯繫 緯育TibaMe ，將立即下架該網站。 </div>
+            <div class="info_from">
+                <div class="info_text"><h3>Information from</h3></div>
+                <div class="info_icon"><img src="img/Spotify_Full_Logo_RGB_Green.png" alt=""></div>
             </div>
-
-            <div class="top1_box margin_50">
-                <div class="top1_img">
-
-                </div>
-                <div class="rank_num">
-                    1
-                </div>
-                <div class="song">
-                    <div class="songname">SongName</div>
-                    <div class="artistname">ArtistName</div>
-                </div>
-
-                <div class="go_listen">
-                    <button id="btn" class="btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
-                </div>
-            </div>
-
-            <div class="top1_box margin_50">
-                <div class="top1_img">
-
-                </div>
-                <div class="rank_num">
-                    1
-                </div>
-                <div class="song">
-                    <div class="songname">SongName</div>
-                    <div class="artistname">ArtistName</div>
-                </div>
-
-                <div class="go_listen">
-                    <button id="btn" class="btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
-                </div>
-            </div>
-
-            <div class="top1_box margin_50">
-                <div class="top1_img">
-
-                </div>
-                <div class="rank_num">
-                    1
-                </div>
-                <div class="song">
-                    <div class="songname">SongName</div>
-                    <div class="artistname">ArtistName</div>
-                </div>
-
-                <div class="go_listen">
-                    <button id="btn" class="btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
-                </div>
-            </div>
-            <div class="top1_box margin_50">
-                <div class="top1_img">
-
-                </div>
-                <div class="rank_num">
-                    1
-                </div>
-                <div class="song">
-                    <div class="songname">SongName</div>
-                    <div class="artistname">ArtistName</div>
-                </div>
-
-                <div class="go_listen">
-                    <button id="btn" class="btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
-                </div>
-            </div>
-            <div class="top1_box margin_50">
-                <div class="top1_img">
-
-                </div>
-                <div class="rank_num">
-                    1
-                </div>
-                <div class="song">
-                    <div class="songname">SongName</div>
-                    <div class="artistname">ArtistName</div>
-                </div>
-
-                <div class="go_listen">
-                    <button id="btn" class="btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
-                </div>
-            </div>
-            <div class="top1_box margin_50">
-                <div class="top1_img">
-
-                </div>
-                <div class="rank_num">
-                    1
-                </div>
-                <div class="song">
-                    <div class="songname">SongName</div>
-                    <div class="artistname">ArtistName</div>
-                </div>
-
-                <div class="go_listen">
-                    <button id="btn" class="btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
-                </div>
-            </div>
-            <div class="top1_box margin_50">
-                <div class="top1_img">
-
-                </div>
-                <div class="rank_num">
-                    1
-                </div>
-                <div class="song">
-                    <div class="songname">SongName</div>
-                    <div class="artistname">ArtistName</div>
-                </div>
-
-                <div class="go_listen">
-                    <button id="btn" class="btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
-                </div>
-            </div>
-            <div class="top1_box margin_50">
-                <div class="top1_img">
-
-                </div>
-                <div class="rank_num">
-                    1
-                </div>
-                <div class="song">
-                    <div class="songname">SongName</div>
-                    <div class="artistname">ArtistName</div>
-                </div>
-
-                <div class="go_listen">
-                    <button id="btn" class="btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
-                </div>
-            </div>
-            <div class="top1_box margin_50">
-                <div class="top1_img">
-
-                </div>
-                <div class="rank_num">
-                    1
-                </div>
-                <div class="song">
-                    <div class="songname">SongName</div>
-                    <div class="artistname">ArtistName</div>
-                </div>
-
-                <div class="go_listen">
-                    <button id="btn" class="login_btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
-                </div>
-
-
-
-            </div>
-            
-            
-            <div class="top1_box margin_50 showmore_btn">
-                <button id="login_btn" class="login_btn"><h3 class="margin_btn"> Show More </h3></button>   
-            </div>
-
-            <div class="frame-20">
-                <div class="tiba-me-tiba-me"> 本網站為緯育TibaMe【第 一 期】前端工程師專業技術養成在職培訓班學員作品<br />僅供學習、展示之用途。<br />若有任何相關侵權問題，請聯繫 緯育TibaMe ，將立即下架該網站。 </div>
-            </div>
-            
-
-
-
-
-        </div> -->
+        </footer>
 
 
     </div>
@@ -814,36 +676,38 @@
             // 縮放 position 位置
             let parent = document.querySelector('.wrapper');
             let parentWidth = parent.offsetWidth;
-            let parentHeight = parent.offsetHeight;           
+            let parentHeight = parent.offsetHeight;  
+            console.log(parentWidth,parentHeight);
+                     
             
-            let img_1_W = document.querySelector('.img_1').style.top = (75/parentHeight) * 100+'%'
+            let img_1_W = document.querySelector('.img_1').style.top = (225/parentHeight) * 100+'%'
             let img_1_H = document.querySelector('.img_1').style.left = (550/parentWidth) * 100+'%'
 
-            let img_2_W = document.querySelector('.img_2').style.top = (90/parentHeight) * 100+'%'
+            let img_2_W = document.querySelector('.img_2').style.top = (170/parentHeight) * 100+'%'
             let img_2_H = document.querySelector('.img_2').style.left = (857/parentWidth) * 100+'%'
 
-            let img_3_W = document.querySelector('.img_3').style.top = (60/parentHeight) * 100+'%'
+            let img_3_W = document.querySelector('.img_3').style.top = (270/parentHeight) * 100+'%'
             let img_3_H = document.querySelector('.img_3').style.left = (1211/parentWidth) * 100+'%'
 
-            let img_4_W = document.querySelector('.img_4').style.top = (375/parentHeight) * 100+'%'
+            let img_4_W = document.querySelector('.img_4').style.top = (885/parentHeight) * 100+'%'
             let img_4_H = document.querySelector('.img_4').style.left = (1270/parentWidth) * 100+'%'
 
-            let img_5_W = document.querySelector('.img_5').style.top = (440/parentHeight) * 100+'%'
+            let img_5_W = document.querySelector('.img_5').style.top = (950/parentHeight) * 100+'%'
             let img_5_H = document.querySelector('.img_5').style.left = (968/parentWidth) * 100+'%'
 
-            let img_6_W = document.querySelector('.img_6').style.top = (380/parentHeight) * 100+'%'
+            let img_6_W = document.querySelector('.img_6').style.top = (875/parentHeight) * 100+'%'
             let img_6_H = document.querySelector('.img_6').style.left = (641/parentWidth) * 100+'%'
 
-            let img_7_W = document.querySelector('.img_7').style.top = (430/parentHeight) * 100+'%'
+            let img_7_W = document.querySelector('.img_7').style.top = (900/parentHeight) * 100+'%'
             let img_7_H = document.querySelector('.img_7').style.left = (299/parentWidth) * 100+'%'
 
-            let img_8_W = document.querySelector('.img_8').style.top = (435/parentHeight) * 100+'%'
+            let img_8_W = document.querySelector('.img_8').style.top = (955/parentHeight) * 100+'%'
             let img_8_H = document.querySelector('.img_8').style.left = (50/parentWidth) * 100+'%'
 
-            let img_9_W = document.querySelector('.img_9').style.top = (125/parentHeight) * 100+'%'
+            let img_9_W = document.querySelector('.img_9').style.top = (135/parentHeight) * 100+'%'
             let img_9_H = document.querySelector('.img_9').style.left = (250/parentWidth) * 100+'%'
 
-            let img_10_W = document.querySelector('.img_10').style.top = (115/parentHeight) * 100+'%'
+            let img_10_W = document.querySelector('.img_10').style.top = (225/parentHeight) * 100+'%'
             let img_10_H = document.querySelector('.img_10').style.left = (10/parentWidth) * 100+'%'
 
     
@@ -950,10 +814,12 @@
 
 
         // 查詢 Spotify 播放列表 API
-        const Global_Top50_Playlist = async () => {
+        const Global_Top50_Playlist = async (playlistId) => {
         // Spotify 播放列表的 ID
         const token = await getSpotifyToken();
-        let playlistId = '37i9dQZEVXbMDoHDwVN2tF';
+
+         playlistId =  playlistId || '37i9dQZEVXbMDoHDwVN2tF'
+        // let playlistId = '37i9dQZEVXbMDoHDwVN2tF';
 
         // https://api.spotify.com/v1/playlists/${playlistId}/tracks?offset=10&limit=40
 
@@ -978,10 +844,17 @@
             let trackList = playlistData.items
             
             let artistNames =''
+
+            let inner_Text=''
             
             const rank_box = document.querySelector('.rank_top50')
             parseTrack(trackList)
             function parseTrack(trackList,rank_start=1) {
+
+
+                
+
+
                 for (let i = 0; i < trackList.length; i++) {
                
                let artists = trackList[i].track.artists
@@ -1019,14 +892,14 @@
 
 
                    
-                   rank_box.innerHTML += `
+                    inner_Text += `
                    
                        <div class="top1_box margin_50">
                            <div class="track_img" style="background-image: url(${images_url});">
                               
                             </div>
                            <div class="rank_num">
-                               ${rank_num}
+                               #${rank_num}
                            </div>
                            <div class="song">
                                <div class="songname">${track_name}</div>
@@ -1034,27 +907,33 @@
                            </div>
 
                            <div class="go_listen">
-                               <button id="login_btn" class="btn"><h3 class="margin_btn"> Go Listen</h3></button>                   
+                               <a href="${song_url}" target="_blank" id="listen_btn" class="btn listen_btn" ><h3 class="margin_btn"> Go Listen</h3></a>                   
                            </div>
                        </div>                       
                    
                    `
+                   rank_box.innerHTML =  inner_Text
+
+                //    console.log(inner_Text);
+                   
+                   
                 
            }
             }
 
                 
-                rank_box.innerHTML += `               
+                inner_Text += `               
                 <div class="show_more margin_50">
-                    <button id="show_more_btn" class="show_more_btn btn"><h3 class="margin_btn">Show More</h3></button>                   
+                    <a  id="show_more_btn" class="btn show_more_btn" ><h3 class="margin_btn"> Show More </h3></a>                 
                 </div>              
                 `
+                rank_box.innerHTML =  inner_Text
 
-                let show_more_btn = document.querySelector('#show_more_btn').addEventListener('click',show_more)
+                document.querySelector('#show_more_btn').addEventListener('click',show_more)
             
                 async function show_more() {
                     
-                    document.querySelector('#show_more_btn').style.display = 'none';
+                    
                     let response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks?offset=10&limit=40`, {
                  headers: {
                     'Authorization': `Bearer ${token}`
@@ -1067,6 +946,8 @@
                  let rank_start = 11
                  parseTrack(trackList,rank_start)
 
+                 document.querySelector('#show_more_btn').style.display = 'none';
+
                 }
         
         }   
@@ -1076,7 +957,40 @@
         
         
         
-        
+        function change_option() {
+            
+            let country = document.querySelector('#country').value
+            console.log(country);
+            let time = document.querySelector('#time').value
+            console.log(time);
+            
+            if (country == 'global') 
+            {
+                if (time == "today") {
+                    // 代表 全球 今日 Top 歌單
+                    let playlistId = "37i9dQZEVXbMDoHDwVN2tF"
+                    Global_Top50_Playlist(playlistId)
+                }
+                else{
+                    // 代表 全球 本周 Top 歌單
+                    let playlistId = "37i9dQZEVXbNG2KDcFcKOF"
+                    Global_Top50_Playlist(playlistId)
+                }
+            }
+            else{
+                if (time == "today") {
+                    // 代表 台灣 今日 Top 歌單
+                    let playlistId = "37i9dQZEVXbMnZEatlMSiu"
+                    Global_Top50_Playlist(playlistId)
+                }
+                else{
+                    // 代表 台灣 本周 Top 歌單
+                    let playlistId = "37i9dQZEVXbMVY2FDHm6NN"
+                    Global_Top50_Playlist(playlistId)
+                }
+            }
+            
+        }
 
     </script>
 </body>
