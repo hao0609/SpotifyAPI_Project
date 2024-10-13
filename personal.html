@@ -645,10 +645,6 @@
         
             const data = await response.json();
             console.log(data);
-            localStorage.setItem('access_token', data.accessToken);
-            if (data.refreshToken) {
-            localStorage.setItem('refresh_token', data.refreshToken);
-            }
         }
         
 
