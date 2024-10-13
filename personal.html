@@ -585,6 +585,7 @@
         const clientId = '6d7c9aa0d8a440f5ba9bfd274e0a7ff0';
         const clientSecret = '439e391e71ae4bf68f1b99a7191dfaa8';
         const encodedCredentials = btoa(`${clientId}:${clientSecret}`);
+        const redirectUri = "https://hao0609.github.io/SpotifyAPI_Project/personal.html"
 
         // 請求 API Token
         async function getSpotifyToken(API_token) {
@@ -599,7 +600,7 @@
             body: new URLSearchParams({
                 grant_type: 'authorization_code',
                 code: authorizationCode,  // 授權碼
-                // redirect_uri: redirectUri,  // 跟授權請求中的一樣
+                redirect_uri: redirectUri,  
             })
         });
         const data = await response.json();
