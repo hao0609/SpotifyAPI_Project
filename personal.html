@@ -576,8 +576,7 @@
           function doFirst() {
 
 
-            let accessToken = localStorage.getItem('accessToken');
-            let refreshToken = localStorage.getItem('refreshToken');
+            
 
          //獲取授權碼
 
@@ -616,6 +615,7 @@
         API_token = accessToken
 
         return API_token;
+        getRefreshToken()
         }   
 
         async function getRefreshToken() {
