@@ -574,8 +574,6 @@
     <script>
         window.addEventListener('load',doFirst)
           function doFirst() {
-
-            // window.location.replace("./personal.html");
             
 
          //獲取授權碼
@@ -616,17 +614,14 @@
             localStorage.setItem('refresh_token', refreshToken);
         }
        
-
         API_token = accessToken
-
-        getRefreshToken()
 
         return API_token;
         
         }   
 
         async function getRefreshToken(New_API_token) {
-            console.log('Test');
+        
         // refresh token that has been previously stored
         const refreshToken = localStorage.getItem('refresh_token');
 
@@ -670,168 +665,11 @@
             const UserData = await response.json();
             console.log(UserData);
 
-            // console.log(playlistData);
-            
-            // console.log(playlistData.items[0]);
-            //歌手名稱 
-            // console.log(playlistData.items[0].track.artists[1].name);
-            //歌曲名稱
-            // console.log(playlistData.items[0].track.name);
-            //歌曲圖片 
-            // console.log(playlistData.items[0].track.album.images[0].url);
-            //歌曲連結
-            // console.log(playlistData.items[0].track.external_urls.spotify);
-            let trackList = playlistData.items
-            
-            let artistNames =''
-
-            let inner_Text=''
-            
-            const rank_box = document.querySelector('.rank_top50')
-            parseTrack(trackList)
-            function parseTrack(trackList,rank_start=1) {
-
-
-                
-
-
-                for (let i = 0; i < trackList.length; i++) {
-               
-               let artists = trackList[i].track.artists
-               // console.log(artists); 
-
-               let track_name = trackList[i].track.name
-
-               let images_url =  trackList[i].track.album.images[0].url
-              
-               rank_num = i+1*rank_start
-
-               let song_url = trackList[i].track.external_urls.spotify
-   
-               // 判斷歌手數量超過1時，字串相加並用逗號隔開
-               if (artists.length > 1) {
-                   
-                    artistNames = artists.map(artist => artist.name).join(', ');
-                   
-                   // console.log(artistNames);
-                   
-                   }
-                else{
-                    artistNames =  artists.map(artist => artist.name).join('');
-                   //  console.log(artistNames);  
-                }
-
-
-                //    console.log(artistNames);  
-                //    console.log(track_name);
-                   
-                //    console.log(images_url); 
-                //    console.log(rank_num); 
-                //    console.log(song_url); 
-
-
-
-                   
-                    inner_Text += `
-                   
-                       <div class="top1_box margin_50">
-                           <div class="track_img" style="background-image: url(${images_url});">
-                              
-                            </div>
-                           <div class="rank_num">
-                               #${rank_num}
-                           </div>
-                           <div class="song">
-                               <div class="songname">${track_name}</div>
-                               <div class="artistname">${artistNames}</div>
-                           </div>
-
-                           <div class="go_listen">
-                               <a href="${song_url}" target="_blank" id="listen_btn" class="btn listen_btn" ><h3 class="margin_btn"> Go Listen</h3></a>                   
-                           </div>
-                       </div>                       
-                   
-                   `
-                   rank_box.innerHTML =  inner_Text
-
-                //    console.log(inner_Text);
-                   
-                   
-                
-           }
-            }
-
-                
-                inner_Text += `               
-                <div class="show_more margin_50">
-                    <a  id="show_more_btn" class="btn show_more_btn" ><h3 class="margin_btn"> Show More </h3></a>                 
-                </div>              
-                `
-                rank_box.innerHTML =  inner_Text
-
-                document.querySelector('#show_more_btn').addEventListener('click',show_more)
-            
-                async function show_more() {
-                    
-                    
-                    let response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks?offset=10&limit=40`, {
-                 headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-                 });
-
-                 const playlistData = await response.json();
-                 console.log(playlistData);
-                 let trackList = playlistData.items
-                 let rank_start = 11
-                 parseTrack(trackList,rank_start)
-
-                 document.querySelector('#show_more_btn').style.display = 'none';
-
-                }
-        
         }   
         
-
-        GetUserProfile()
+        GetUserProfile()       
         
-        
-        
-        function change_option() {
-            
-            let country = document.querySelector('#country').value
-            console.log(country);
-            let time = document.querySelector('#time').value
-            console.log(time);
-            
-            if (country == 'global') 
-            {
-                if (time == "today") {
-                    // 代表 全球 今日 Top 歌單
-                    let playlistId = "37i9dQZEVXbMDoHDwVN2tF"
-                    Global_Top50_Playlist(playlistId)
-                }
-                else{
-                    // 代表 全球 本周 Top 歌單
-                    let playlistId = "37i9dQZEVXbNG2KDcFcKOF"
-                    Global_Top50_Playlist(playlistId)
-                }
-            }
-            else{
-                if (time == "today") {
-                    // 代表 台灣 今日 Top 歌單
-                    let playlistId = "37i9dQZEVXbMnZEatlMSiu"
-                    Global_Top50_Playlist(playlistId)
-                }
-                else{
-                    // 代表 台灣 本周 Top 歌單
-                    let playlistId = "37i9dQZEVXbMVY2FDHm6NN"
-                    Global_Top50_Playlist(playlistId)
-                }
-            }
-            
-        }
-    }
+ }
     </script>
 </body>
 </html>
