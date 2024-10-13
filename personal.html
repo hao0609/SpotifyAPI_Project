@@ -625,7 +625,7 @@
         
         }   
 
-        async function getRefreshToken() {
+        async function getRefreshToken(New_API_token) {
             console.log('Test');
         // refresh token that has been previously stored
         const refreshToken = localStorage.getItem('refresh_token');
@@ -645,13 +645,21 @@
         
             const data = await response.json();
             console.log(data);
+            New_API_token = data.access_token
+            localStorage.setItem('New_API_token', New_API_token);
+            return New_API_token
         }
         
 
         // 查詢 Spotify User 用戶資料 API
         const GetUserProfile= async() => {
         // Spotify 播放列表的 ID
-        const token = await getSpotifyToken();
+        let token = await getSpotifyToken();
+        let new_token = await getRefreshToken();
+
+        if (!token) {
+            token = new_token
+        }
 
         let response = await fetch(`https://api.spotify.com/v1/me`, {
                  headers: {
