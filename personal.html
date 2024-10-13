@@ -610,8 +610,9 @@
         console.log(data);
 
         accessToken = data.access_token
-
+        refreshToken = data.refreshToken
         localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem('refresh_token', refreshToken);
 
         API_token = accessToken
 
