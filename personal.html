@@ -555,7 +555,9 @@
                     </nav>
                 </div>
             </header>
-           
+            <div class="show_more margin_50">
+                <a href="test.html" id="show_more_btn" class="btn show_more_btn" ><h3 class="margin_btn"> Show More </h3></a>                 
+            </div>      
 
         <footer>
 
@@ -568,22 +570,16 @@
 
 
     </div>
-    <script async src="authorization.js"></script>
+
     <script>
         window.addEventListener('load',doFirst)
           function doFirst() {
 
-            const params = new URLSearchParams(window.location.search);
-            const authorizationCode = params.get('code');
-            console.log(authorizationCode);
-            
-          }
-        	
-    </script>
+         //獲取授權碼
 
-
-
-    <script>
+        const params = new URLSearchParams(window.location.search);
+        const authorizationCode = params.get('code');
+        console.log(authorizationCode);
 
 
         const clientId = '6d7c9aa0d8a440f5ba9bfd274e0a7ff0';
@@ -599,14 +595,16 @@
             'Content-Type': 'application/x-www-form-urlencoded'
             },
             body: new URLSearchParams({
-            grant_type: 'client_credentials' // 需要 URL 編碼
+                grant_type: 'authorization_code',
+                code: authorizationCode,  // 授權碼
+                // redirect_uri: redirectUri,  // 跟授權請求中的一樣
             })
         });
         const data = await response.json();
-        API_token = data.access_token
-        return API_token;
+        // API_token = data.access_token
+        // return API_token;
         }   
-
+    }
 
         // 查詢 Spotify 播放列表 API
         const Global_Top50_Playlist = async (playlistId) => {
