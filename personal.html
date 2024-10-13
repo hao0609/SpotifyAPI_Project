@@ -77,7 +77,6 @@
         }
         .content_box{
 
-            height: 100vh;
             display: flex;
             flex-direction: column;
         }
@@ -95,101 +94,17 @@
             -webkit-animation: wave-back 3s 0.1s infinite linear;
             animation: wave-back 3s 0.1s infinite linear;
         }
-        .img_1{
+        .img_user{
             position: relative; 
-            width: 239px;
-            height: 239px;
-            border-radius: 261px;
-            background: url(https://i.scdn.co/image/ab6761610000f1786e835a500e791bf9c27a422a) lightgray 50% / cover no-repeat;
-
+            width: 185px;
+            height: 185px;
+            border-radius: 100px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
-        .img_2{
-            position: relative;
-            width: 285px;
-            height: 285px;
-            border-radius: 261px;
-            background: url(https://i.scdn.co/image/ab6761610000f17819c2790744c792d05570bb71) lightgray 50% / cover no-repeat;
-
-
-        }
-        .img_3{
-            position: relative;
-            width: 258px;
-            height: 258px;
-            border-radius: 261px;
-            background-color: #05fffba9;
-            background: url(https://i.scdn.co/image/ab6761610000f17860f57316669a4ba12eb37b94) lightgray 50% / cover no-repeat;
-
-        }
-        .img_4{
-            position: relative;
-
-            width: 245px;
-            height: 245px;
-            border-radius: 261px;
-            background-color: #00ff66;
-            background: url(https://i.scdn.co/image/ab6761610000f178e053b8338322b9c8609ee7ae) lightgray 50% / cover no-repeat;
-        }
-        .img_5{
-            position: relative;
-
-            width: 242px;
-            height: 242px;
-            border-radius: 261px;
-            background-color: #ff9900;
-            background: url(https://i.scdn.co/image/ab6761610000f1789e528993a2820267b97f6aae) lightgray 50% / cover no-repeat;
-
-        }
-        .img_6{
-            position: relative;
-
-            width: 264px;
-            height: 264px;
-            border-radius: 261px;
-            background-color: #00a6ff;
-            background: url(https://i.scdn.co/image/ab6761610000f1788278b782cbb5a3963db88ada) 50% / cover no-repeat;
-
-        }
-        .img_7{
-            position: relative;
-
-            right:903px;
-            width: 238px;
-            height: 238px;
-            border-radius: 261px;
-            background-color: #e100ff;
-            background: url(https://i.scdn.co/image/ab6761610000f178437b9e2a82505b3d93ff1022) lightgray 50% / cover no-repeat;
-
-        }
-        .img_8{
-            position: relative;
-
-            width: 190px;
-            height: 190px;
-            border-radius: 261px;
-            background-color: #072e88;
-            background: url(https://i.scdn.co/image/ab6761610000f178ee3123e593174208f9754fab) lightgray 50% / cover no-repeat;
-
-        }
-        .img_9{
-            position: relative;
-
-            width: 260px; 
-            height: 260px;
-            border-radius: 261px;
-            background-color: #4f0e52;
-            background: url(https://i.scdn.co/image/ab6761610000f178ed3b89aa602145fde71a163a) lightgray 50% / cover no-repeat;
-
-        }
-        .img_10{
-            position: relative;
-
-            width: 210px; 
-            height: 210px;
-            border-radius: 261px;
-            background-color: #ef8686;
-            background: url(https://i.scdn.co/image/ab6761610000f17880668ba2b15094d083780ea9) lightgray 50% / cover no-repeat;
-
+        .user_name{
+            margin: 2% 0;
         }
         .box{
             position: relative;
@@ -329,6 +244,23 @@
             padding-right: 2%;
             display: flex;
             justify-content: space-between;
+        }
+        .user_info_box{
+
+            width: 100%;
+            padding-top: 2%;
+            padding-bottom: 2%;
+            background-color: #ccc;
+
+        }
+        .user_info_inside_box{
+            display: flex;
+            width: 1200px;
+            margin: auto;
+
+        }
+        .user_info{
+            margin-left: 5%;
         }
         li{
             list-style: none;
@@ -555,9 +487,31 @@
                     </nav>
                 </div>
             </header>
-            <div class="show_more margin_50">
-                <a href="test.html" id="show_more_btn" class="btn show_more_btn" ><h3 class="margin_btn"> Show More </h3></a>                 
-            </div>      
+
+
+
+            <div class="user_info_box">
+
+                <div class="user_info_inside_box">
+                    <div class="img_user"></div>
+                    <div class="user_info">
+                        <div class="user_name"> <h3>用戶名</h3></div>
+                        <div class="user_text">
+                            <h3> Hi , <span id="userName"><span>  以下是您 Spotify 帳號的音樂品味分析 <br>
+
+                                您可以點選 ”最愛的藝人”、”最愛的藝人”、”最愛的歌手” <br>
+                                
+                                "Show More" 查看您目前各項目的排行榜
+                            </h3>
+
+                        </div>
+                        
+
+                    </div>
+                </div>
+
+            </div>
+
 
         <footer>
 
@@ -580,13 +534,13 @@
 
         const params = new URLSearchParams(window.location.search);
         const authorizationCode = params.get('code');
-        console.log(authorizationCode);
+        // console.log(authorizationCode);
 
         const clientId = '6d7c9aa0d8a440f5ba9bfd274e0a7ff0';
         const clientSecret = '439e391e71ae4bf68f1b99a7191dfaa8';
         const encodedCredentials = btoa(`${clientId}:${clientSecret}`);
         const redirectUri = "https://hao0609.github.io/SpotifyAPI_Project/personal.html"
-        console.log(encodedCredentials);
+        // console.log(encodedCredentials);
         
         // 請求 API Token
         async function getSpotifyToken(API_token) {
@@ -605,7 +559,7 @@
             })
         });
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
 
         accessToken = data.access_token
         refreshToken = data.refresh_token
@@ -639,7 +593,7 @@
         });
         
             const data = await response.json();
-            console.log(data);
+            // console.log(data);
             New_API_token = data.access_token
             localStorage.setItem('New_API_token', New_API_token);
             return New_API_token
@@ -663,8 +617,19 @@
             });
 
             const UserData = await response.json();
-            console.log(UserData);
+            // console.log(UserData);
 
+            let userName = UserData.display_name
+            let userImage_url = UserData.images[1].url
+
+            console.log(userName);
+            console.log(userImage_url);
+            
+            document.querySelector('.img_user').style.backgroundImage='url(${userImage_url})'
+
+            document.querySelector('.user_name>h3').innerText = userName
+            document.querySelector('#userName').innerText = userName
+            
         }   
         
         GetUserProfile()       
