@@ -611,8 +611,11 @@
 
         accessToken = data.access_token
         refreshToken = data.refresh_token
-        localStorage.setItem('accessToken', accessToken);
-        localStorage.setItem('refresh_token', refreshToken);
+        
+        if (accessToken) {
+            localStorage.setItem('refresh_token', refreshToken);
+        }
+       
 
         API_token = accessToken
 
