@@ -585,16 +585,6 @@
         const authorizationCode = params.get('code');
         console.log(authorizationCode);
 
-
-        if (!accessToken) {
-                // 如果沒有 access token，使用授權碼請求新的 token
-                getSpotifyToken(authorizationCode);
-            } else if (accessToken) {
-                // 如果已經有 access token，直接查詢用戶資料
-                GetUserProfile(accessToken);
-            }
-
-
         const clientId = '6d7c9aa0d8a440f5ba9bfd274e0a7ff0';
         const clientSecret = '439e391e71ae4bf68f1b99a7191dfaa8';
         const encodedCredentials = btoa(`${clientId}:${clientSecret}`);
