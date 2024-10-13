@@ -604,33 +604,29 @@
             })
         });
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         
-        // API_token = data.access_token
+        API_token = data.access_token
         return API_token;
 
 
         }   
-        getSpotifyToken();
     }
 
         // 查詢 Spotify 播放列表 API
-        const Global_Top50_Playlist = async (playlistId) => {
+        const GetUserProfile= async() => {
         // Spotify 播放列表的 ID
         const token = await getSpotifyToken();
 
-         playlistId =  playlistId || '37i9dQZEVXbMDoHDwVN2tF'
-        // let playlistId = '37i9dQZEVXbMDoHDwVN2tF';
-
-        // https://api.spotify.com/v1/playlists/${playlistId}/tracks?offset=10&limit=40
-
-        let response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=10`, {
+        let response = await fetch(`https://api.spotify.com/v1/me`, {
                  headers: {
                     'Authorization': `Bearer ${token}`
                 }
             });
 
-            const playlistData = await response.json();
+            const UserData = await response.json();
+            console.log(UserData);
+            
             // console.log(playlistData);
             
             // console.log(playlistData.items[0]);
