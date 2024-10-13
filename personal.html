@@ -616,10 +616,34 @@
         API_token = accessToken
 
         return API_token;
-
-
-
         }   
+
+        async function getRefreshToken() {
+
+        // refresh token that has been previously stored
+        const refreshToken = localStorage.getItem('refresh_token');
+        const url = "https://accounts.spotify.com/api/token";
+
+        const response = await fetch('https://accounts.spotify.com/api/token', {
+            method: 'POST',
+            headers: {
+            'Authorization': `Basic ${encodedCredentials}`, // Basic 認證
+            'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+                grant_type: 'authorization_code',
+                refresh_token: refreshToken,
+                client_id: clientId
+            })
+        });
+        
+            const data = await response.json();
+
+            localStorage.setItem('access_token', data.accessToken);
+            if (data.refreshToken) {
+            localStorage.setItem('refresh_token', data.refreshToken);
+            }
+        }
         
 
         // 查詢 Spotify User 用戶資料 API
