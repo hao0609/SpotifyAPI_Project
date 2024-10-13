@@ -620,17 +620,14 @@
         console.log(data);
 
         accessToken = data.access_token
-        refreshToken = data.refresh_token
 
-        if (!accessToken) {
-            API_token =  refreshToken
-        }
+        localStorage.setItem('accessToken', accessToken);
+
+        API_token = accessToken
 
         return API_token;
 
-        // 儲存 Access Token 和 Refresh Token
-        localStorage.setItem('accessToken', data.access_token);
-        localStorage.setItem('refreshToken', data.refresh_token);
+
 
         }   
         
@@ -648,7 +645,7 @@
 
             const UserData = await response.json();
             console.log(UserData);
-           
+
             // console.log(playlistData);
             
             // console.log(playlistData.items[0]);
