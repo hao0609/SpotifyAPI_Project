@@ -575,11 +575,24 @@
         window.addEventListener('load',doFirst)
           function doFirst() {
 
+
+            let accessToken = localStorage.getItem('accessToken');
+            let refreshToken = localStorage.getItem('refreshToken');
+
          //獲取授權碼
 
         const params = new URLSearchParams(window.location.search);
         const authorizationCode = params.get('code');
         console.log(authorizationCode);
+
+
+        if (!accessToken) {
+                // 如果沒有 access token，使用授權碼請求新的 token
+                getSpotifyToken(authorizationCode);
+            } else if (accessToken) {
+                // 如果已經有 access token，直接查詢用戶資料
+                GetUserProfile(accessToken);
+            }
 
 
         const clientId = '6d7c9aa0d8a440f5ba9bfd274e0a7ff0';
@@ -605,16 +618,24 @@
         });
         const data = await response.json();
         console.log(data);
-        
-        API_token = data.access_token
+
+        accessToken = data.access_token
+        refreshToken = data.refresh_token
+
+        if (!accessToken) {
+            API_token =  refreshToken
+        }
+
         return API_token;
 
+        // 儲存 Access Token 和 Refresh Token
+        localStorage.setItem('accessToken', data.access_token);
+        localStorage.setItem('refreshToken', data.refresh_token);
 
         }   
         
-        // getSpotifyToken()
 
-        // 查詢 Spotify 播放列表 API
+        // 查詢 Spotify User 用戶資料 API
         const GetUserProfile= async() => {
         // Spotify 播放列表的 ID
         const token = await getSpotifyToken();
@@ -627,7 +648,7 @@
 
             const UserData = await response.json();
             console.log(UserData);
-            
+         }   
             // console.log(playlistData);
             
             // console.log(playlistData.items[0]);
