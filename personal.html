@@ -184,6 +184,7 @@
         }
         .top_genres{
             font-size: 64px;
+            text-transform:capitalize;
         }
         .top_track{
             width: 200px;
@@ -566,7 +567,7 @@
                     <div class="top_tittle">
                         <h3>最愛的音樂風格</h3>
                     </div>
-                    <div class="top_genres margin_30">
+                    <div class="top_genres margin_30" id="top_genres">
                         
                     </div>
                     <div class="show_more">
@@ -762,7 +763,7 @@
 
             console.log(genreTopName);
 
-            document.querySelector('.top_genres.margin_30').innerText = genreTopName
+            document.querySelector('#top_genres').innerText = genreTopName
 
         }   
         
