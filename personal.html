@@ -742,6 +742,14 @@
              }
 
             console.log(allGenres);
+
+            const genreCount = allGenres.reduce((acc, genre) => {
+            acc[genre] = (acc[genre] || 0) + 1;  // 如果 genre 已經存在於 acc 中，則次數加 1，否則初始化為 1
+            return acc;
+            }, {});
+
+            console.log(genreCount);
+            
         }   
         
         GetUserProfile()       
