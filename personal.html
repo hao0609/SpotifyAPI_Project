@@ -178,7 +178,29 @@
             width: fit-content;
             margin: auto;
         }
+        .top_box{
+            display: flex;
+            justify-content: center;
+        }
+        .top_genres{
+            font-size: 64px;
+        }
+        .top_track{
+            width: 200px;
+            height: 200px;
+            background-color: #8e8e8e;
 
+        }
+        .top_artist{
+            position: relative; 
+            width: 185px;
+            height: 185px;
+            border-radius: 100px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #8e8e8e;
+        }
         .rank_tittle{
 
             font-size: 96px;
@@ -354,7 +376,7 @@
             font-size: 30px;
             font-weight: bold;
             font-weight:  700;
-            width: 150px;
+            width: 180px;
             height: 50px;
             background-color: #ffffff;
             border: none;
@@ -414,11 +436,22 @@
         .margin_50{
             margin-top: 50px;
         }
-
+        .flex{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .margin_30{
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .width_300{
+            width: 300px;
+        }
         .show_more{
 
             text-align: center;
-            margin-bottom: 50px;
         }
         .showmore_btn{
             background-color: transparent;
@@ -455,7 +488,15 @@
         img{
             width: 50%;
         }
+        .time_box{
 
+            width: 900px;
+            text-align: left;
+            margin: auto;
+            padding: 20;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
         
     </style>
     <title>Spotify API Project</title>
@@ -505,13 +546,60 @@
                             </h3>
 
                         </div>
-                        
 
                     </div>
                 </div>
 
             </div>
 
+            
+            <div class="time_box">
+                <select name="time" id="time" class="option_box" onchange="change_option()">
+                    <option value="week" selected> 4 周</option>
+                    <option value="today" > 6 個月</option>
+                    <option value="week" >總時間</option>
+                  </select>
+            </div>
+
+            <div class="top_box">
+                <div class="genres flex width_300">
+                    <div class="top_tittle">
+                        <h3>最愛的音樂風格</h3>
+                    </div>
+                    <div class="top_genres margin_30">
+                       Hip-Hop 
+                    </div>
+                    <div class="show_more">
+                        <a  id="show_more_btn" class="btn show_more_btn" ><h3 class="margin_btn"> Show More </h3></a>                 
+                    </div>  
+                </div>
+
+                <div class="artist flex width_300">
+                    <div class="top_tittle">
+                       <h3>最愛的藝人</h3> 
+                    </div>
+                    <div class="top_artist margin_30">
+                        
+                    </div>
+                    <div class="show_more">
+                        <a  id="show_more_btn" class="btn show_more_btn" ><h3 class="margin_btn"> Show More </h3></a>                 
+                    </div>  
+                </div>
+
+                <div class="track flex width_300">
+                    <div class="top_tittle">
+                        <h3>最愛的歌曲</h3>
+                    </div>
+                    <div class="top_track margin_30">
+                        
+                    </div>
+                    <div class="show_more">
+                        <a  id="show_more_btn" class="btn show_more_btn" ><h3 class="margin_btn"> Show More </h3></a>                 
+                    </div>  
+                </div>
+
+            </div>
+            
 
         <footer>
 
