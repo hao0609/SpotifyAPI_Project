@@ -728,7 +728,16 @@
             });
 
             const UserTopArtistData = await UserTopArtist_response.json();
-             console.log(UserTopArtistData)
+             console.log(UserTopArtistData.items)
+
+             let UserTopArtist_list = UserTopArtistData.items
+
+             for (let i = 0; i < UserTopArtist_list.length; i++) {
+                // UserTopArtist_list[i].genres
+                console.log(UserTopArtist_list[i].genres);
+                
+             }
+
             
         }   
         
