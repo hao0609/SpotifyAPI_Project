@@ -698,17 +698,17 @@
             token = new_token
         }
 
-        let response = await fetch(`https://api.spotify.com/v1/me`, {
+        let UserProfile_response = await fetch(`https://api.spotify.com/v1/me`, {
                  headers: {
                     'Authorization': `Bearer ${token}`
                 }
             });
 
-            const UserData = await response.json();
-            // console.log(UserData);
+            const UserProfileData = await UserProfile_response.json();
+            // console.log(UserProfileData);
 
-            let userName = UserData.display_name
-            let userImage_url = UserData.images[1].url
+            let userName = UserProfileData.display_name
+            let userImage_url = UserProfileData.images[1].url
 
             console.log(userName);
             console.log(userImage_url);
@@ -717,6 +717,18 @@
 
             document.querySelector('.user_name>h3').innerText = userName
             document.querySelector('#userName').innerText = userName
+            
+           
+
+
+        let UserTopArtist_response = await fetch(`https://api.spotify.com/v1/me/top/artists?limit=50&offset=0`, {
+                 headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            const UserTopArtistData = await UserTopArtist_response.json();
+             console.log(UserTopArtistData)
             
         }   
         
