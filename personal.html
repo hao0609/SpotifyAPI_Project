@@ -189,7 +189,10 @@
         .top_track{
             width: 200px;
             height: 200px;
-            background-color: #8e8e8e;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* background-color: #8e8e8e; */
 
         }
         .top_artist{
@@ -591,7 +594,7 @@
                     <div class="top_tittle">
                         <h3>最愛的歌曲</h3>
                     </div>
-                    <div class="top_track margin_30">
+                    <div class="top_track margin_30" id="top_track">
                         
                     </div>
                     <div class="show_more">
@@ -783,9 +786,11 @@
             const UserTopTrackData = await UserTopTrack_response.json();
              console.log(UserTopTrackData.items)
 
+             let UserTopTrack_list = UserTopTrackData.items
 
+             TopTrack_img_url = UserTopArtist_list[0].album.images[1].url //最愛藝人
 
-
+             document.querySelector('#top_track').style.backgroundImage=`url(${TopTrack_img_url})`
 
 
 
