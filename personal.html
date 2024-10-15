@@ -200,7 +200,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-color: #8e8e8e;
+            /* background-color: #8e8e8e; */
         }
         .rank_tittle{
 
@@ -579,7 +579,7 @@
                     <div class="top_tittle">
                        <h3>最愛的藝人</h3> 
                     </div>
-                    <div class="top_artist margin_30">
+                    <div class="top_artist margin_30" id="top_artist">
                         
                     </div>
                     <div class="show_more">
@@ -763,8 +763,13 @@
 
             console.log(genreTopName);
 
-            document.querySelector('#top_genres').innerText = genreTopName
+            document.querySelector('#top_genres').innerText = genreTopName  //最愛風格
 
+
+
+            TopArtist_img_url = UserTopArtist_list[0].images[1] //最愛藝人
+
+            document.querySelector('#top_artist').style.backgroundImage=`url(${TopArtist_img_url})`
         }   
         
         GetUserProfile()       
