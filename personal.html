@@ -770,6 +770,26 @@
             TopArtist_img_url = UserTopArtist_list[0].images[1].url //最愛藝人
             console.log(TopArtist_img_url);
             document.querySelector('#top_artist').style.backgroundImage=`url(${TopArtist_img_url})`
+
+
+
+            // 查詢 Spotify User Top Track
+            let UserTopTrack_response = await fetch(`https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=50&offset=0`, {
+                 headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            const UserTopTrackData = await UserTopTrack_response.json();
+             console.log(UserTopTrackData.items)
+
+
+
+
+
+
+
+
         }   
         
         GetUserProfile()       
