@@ -567,7 +567,7 @@
                         <h3>最愛的音樂風格</h3>
                     </div>
                     <div class="top_genres margin_30">
-                       Hip-Hop 
+                        
                     </div>
                     <div class="show_more">
                         <a  id="show_more_btn" class="btn show_more_btn" ><h3 class="margin_btn"> Show More </h3></a>                 
@@ -751,11 +751,17 @@
             console.log(genreCount);
             
             const sortedGenres = Object.entries(genreCount)
-            
+
             .sort((a, b) => b[1] - a[1]);  // 根據出現次數（a[1] 和 b[1]）降序排列
 
-            // 步驟 3：顯示排序後的結果
-            console.log(sortedGenres);
+            // 顯示排序後的結果
+            // console.log(sortedGenres);
+
+            let genreTop = sortedGenres[0]
+            let genreTopName = genreTop[0]
+
+            document.querySelector('.top_genres .margin_30').innerText = genreTopName
+
         }   
         
         GetUserProfile()       
