@@ -750,6 +750,12 @@
 
             console.log(genreCount);
             
+            const sortedGenres = Object.entries(genreCount)
+            
+            .sort((a, b) => b[1] - a[1]);  // 根據出現次數（a[1] 和 b[1]）降序排列
+
+            // 步驟 3：顯示排序後的結果
+            console.log(sortedGenres);
         }   
         
         GetUserProfile()       
