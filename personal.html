@@ -753,8 +753,7 @@
                     let time = 'long_term'
                     console.log(time);
                 }
-                await UserTopArtist_response
-                await UserTopTrack_response
+                 GetUserProfile()
             }
 
         let UserTopArtist_response = await fetch(`https://api.spotify.com/v1/me/top/artists?time_range=${time}&limit=50&offset=0`, {
