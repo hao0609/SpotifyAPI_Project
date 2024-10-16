@@ -749,7 +749,7 @@
             document.querySelector('#userName').innerText = userName
             
            
-
+            console.log(token)
             // 查詢 Spotify User Top Artist
         let UserTopArtist_response = await fetch(`https://api.spotify.com/v1/me/top/artists?time_range=short_term&limit=50&offset=0`, {
                  headers: {
