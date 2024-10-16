@@ -755,7 +755,8 @@
                 }
                 UserTopArtist_response 
                 UserTopTrack_response 
-
+            }
+            
         let UserTopArtist_response = await fetch(`https://api.spotify.com/v1/me/top/artists?time_range=${time}&limit=50&offset=0`, {
                  headers: {
                     'Authorization': `Bearer ${token}`
