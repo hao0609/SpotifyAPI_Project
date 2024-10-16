@@ -697,8 +697,8 @@
         let new_token = await getRefreshToken();
 
         // let token = await getRefreshToken();
-        //console.log(token)
-        //console.log(new_token)
+        console.log(token)
+        console.log(new_token)
         // if (!token) {
         //     token = new_token
         // }
@@ -724,7 +724,7 @@
             // 權杖失效讓權杖等於新權杖，並在請求一次
             if (UserProfile_response.status === 401) {
                 console.log('Access token expired, refreshing token...');
-                let token = localStorage.getItem('New_API_token'); // Refresh access token
+                let token = new_token; // Refresh access token
                 let UserProfile_response = await fetch(`https://api.spotify.com/v1/me`, {
                  headers: {
                     'Authorization': `Bearer ${token}`
