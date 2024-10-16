@@ -725,6 +725,7 @@
             if (UserProfile_response.status === 401) {
                 console.log('Access token expired, refreshing token...');
                 let token = new_token; // Refresh access token
+                console.log(token);                
                 let UserProfile_response = await fetch(`https://api.spotify.com/v1/me`, {
                  headers: {
                     'Authorization': `Bearer ${token}`
