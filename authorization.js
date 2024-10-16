@@ -2,15 +2,12 @@
 let login_btn = document.querySelector('#login_btn')
 
 
- login_btn.addEventListener('click',get_authorization)
+login_btn.addEventListener('click',get_authorization)
 
 
 
 
  function get_authorization() {
-  
-    
-   let login_btn = document.querySelector('#login_btn')
    
     const clientId = '6d7c9aa0d8a440f5ba9bfd274e0a7ff0'; // Spotify Developer 中獲取
    //  const redirectUri = "http://127.0.0.1:5500/test.html" // 設定的重導網址 
