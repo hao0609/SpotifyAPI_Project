@@ -626,13 +626,13 @@
 
         const params = new URLSearchParams(window.location.search);
         const authorizationCode = params.get('code');
-        // console.log(authorizationCode);
+         console.log(authorizationCode);
 
         const clientId = '6d7c9aa0d8a440f5ba9bfd274e0a7ff0';
         const clientSecret = '439e391e71ae4bf68f1b99a7191dfaa8';
         const encodedCredentials = btoa(`${clientId}:${clientSecret}`);
         const redirectUri = "https://hao0609.github.io/SpotifyAPI_Project/personal.html"
-        // console.log(encodedCredentials);
+        //console.log(encodedCredentials);
         
         // 請求 API Token
         async function getSpotifyToken(API_token) {
@@ -651,7 +651,7 @@
             })
         });
         const data = await response.json();
-        // console.log(data);
+         console.log(data);
 
         accessToken = data.access_token
         refreshToken = data.refresh_token
