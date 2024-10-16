@@ -559,9 +559,9 @@
             
             <div class="time_box">
                 <select name="time" id="time" class="option_box" onchange="change_option()">
-                    <option value="week" selected> 4 周</option>
-                    <option value="today" > 6 個月</option>
-                    <option value="week" >總時間</option>
+                    <option value="fourWeek" selected> 4 周</option>
+                    <option value="sixMonth" > 6 個月</option>
+                    <option value="total" >總時間</option>
                   </select>
             </div>
 
@@ -698,6 +698,8 @@
         let token = await getSpotifyToken();
         let new_token = await getRefreshToken();
 
+        let time = 'short_term'
+
         console.log(token)
         console.log(new_token)
 
@@ -731,7 +733,20 @@
            
             console.log(token)
             // 查詢 Spotify User Top Artist
-        let UserTopArtist_response = await fetch(`https://api.spotify.com/v1/me/top/artists?time_range=short_term&limit=50&offset=0`, {
+
+            function change_option() {
+                let time_range = document.querySelector('#time').value
+                if (time_range == fourWeek) {
+                    let time = 'short_term'
+                }else if(time_range == sixMonth) {   
+                    let time = 'medium_term'
+                }else if (time_range == total) {
+                    let time = 'long_term'
+                }
+            }
+
+
+        let UserTopArtist_response = await fetch(`https://api.spotify.com/v1/me/top/artists?time_range=${time}&limit=50&offset=0`, {
                  headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -783,7 +798,7 @@
 
 
             // 查詢 Spotify User Top Track
-            let UserTopTrack_response = await fetch(`https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=50&offset=0`, {
+            let UserTopTrack_response = await fetch(`https://api.spotify.com/v1/me/top/tracks?time_range=${time}&limit=50&offset=0`, {
                  headers: {
                     'Authorization': `Bearer ${token}`
                 }
