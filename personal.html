@@ -697,7 +697,8 @@
     async function GetUserProfile(){
         let token = await getSpotifyToken();
         let new_token = await getRefreshToken();
-
+        console.log(token)
+        console.log(new_token)
         if (!token) {
             token = new_token
         }
