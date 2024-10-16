@@ -742,14 +742,14 @@
 
             change_option = function() {
                 let time_range = document.querySelector('#time').value
-                if (time_range == fourWeek) {
+                if (time_range == 'fourWeek') {
                     let time = 'short_term'
                     console.log(time);
                     
-                }else if(time_range == sixMonth) {   
+                }else if(time_range == 'sixMonth') {   
                     let time = 'medium_term'
                     console.log(time);
-                }else if (time_range == total) {
+                }else if (time_range == 'total') {
                     let time = 'long_term'
                     console.log(time);
                 }
