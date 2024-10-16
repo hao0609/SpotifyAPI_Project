@@ -660,11 +660,7 @@
             localStorage.setItem('refresh_token', refreshToken);
         }
 
-        
-       
-        API_token = accessToken
-
-        return API_token;
+        return accessToken;
         
         }   
 
@@ -707,13 +703,13 @@
         //     token = new_token
         // }
 
-        token.then(response => {
-        if (response.status === 401) {
-            // Token 過期或無效，進行 refresh token 流程
-            token = new_token
-        }
-        else{}
-    })
+    //     token.then(response => {
+    //     if (response.status === 401) {
+    //         // Token 過期或無效，進行 refresh token 流程
+    //         token = new_token
+    //     }
+    //     else{}
+    // })
 
         
 
@@ -725,6 +721,16 @@
                 }
             });
 
+            if (UserProfile_response.status === 401) {
+                console.log('Access token expired, refreshing token...');
+                token = new_token; // Refresh access token
+                let UserProfile_response = await fetch(`https://api.spotify.com/v1/me`, {
+                 headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            }
+            else{
             const UserProfileData = await UserProfile_response.json();
             // console.log(UserProfileData);
 
@@ -738,7 +744,7 @@
 
             document.querySelector('.user_name>h3').innerText = userName
             document.querySelector('#userName').innerText = userName
-            
+            }
            
 
             // 查詢 Spotify User Top Artist
