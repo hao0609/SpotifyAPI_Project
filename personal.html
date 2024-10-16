@@ -693,8 +693,8 @@
         
 
         // 查詢 Spotify User 用戶資料 API
-        const GetUserProfile= async() => {
-        
+        //const GetUserProfile= async() => {
+    async function GetUserProfile(){
         let token = await getSpotifyToken();
         let new_token = await getRefreshToken();
 
