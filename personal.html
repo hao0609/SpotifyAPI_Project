@@ -582,6 +582,7 @@
                     <div class="top_tittle">
                        <h3>最愛的藝人</h3> 
                     </div>
+                    <div id="top_artist_name"><h3></h3></div>
                     <div class="top_artist margin_30" id="top_artist">
                         
                     </div>
@@ -594,6 +595,7 @@
                     <div class="top_tittle">
                         <h3>最愛的歌曲</h3>
                     </div>
+                    <div id="top_track_name"><h3></h3></div>
                     <div class="top_track margin_30" id="top_track">
                         
                     </div>
@@ -696,29 +698,20 @@
         let token = await getSpotifyToken();
         let new_token = await getRefreshToken();
 
-        // let token = await getRefreshToken();
         console.log(token)
         console.log(new_token)
+
+        // 判斷token為空值(代表就token失效)，讓新的token做替換
         if (!token) {
             token = new_token
         }
 
-    //     token.then(response => {
-    //     if (response.status === 401) {
-    //         // Token 過期或無效，進行 refresh token 流程
-    //         token = new_token
-    //     }
-    //     else{}
-    // })
-
-            
-                    // 做第一次請求，然後判斷權杖是否有效 (判斷依據權杖錯誤請求回應狀態 401)
-                let UserProfile_response = await fetch(`https://api.spotify.com/v1/me`, {
+        let UserProfile_response = await fetch(`https://api.spotify.com/v1/me`, {
                         headers: {
                             'Authorization': `Bearer ${token}`
                         }
-                });
-            console.log(token)
+        });
+        console.log(token)
 
             
             const UserProfileData = await UserProfile_response.json();
@@ -781,8 +774,8 @@
 
             document.querySelector('#top_genres').innerText = genreTopName  //最愛風格
 
-
-
+            TopArtist_name = UserTopArtist_list[0].name
+            document.querySelector('#top_artist_name>h3').innerText = TopArtist_name
             TopArtist_img_url = UserTopArtist_list[0].images[1].url //最愛藝人
             console.log(TopArtist_img_url);
             document.querySelector('#top_artist').style.backgroundImage=`url(${TopArtist_img_url})`
@@ -801,9 +794,13 @@
 
              let UserTopTrack_list = UserTopTrackData.items
 
-             TopTrack_img_url = UserTopTrack_list[0].album.images[1].url //最愛藝人
+             TopTrack_name = UserTopTrack_list[0].name
 
-             document.querySelector('#top_track').style.backgroundImage=`url(${TopTrack_img_url})`
+             document.querySelector('#top_track_name>h3').innerText = TopTrack_name
+
+             TopTrack_img_url = UserTopTrack_list[0].album.images[1].url //最愛藝人圖片
+
+             document.querySelector('#top_track').style.backgroundImage=`url(${TopTrack_img_url})` //最愛歌曲圖片
 
 
 
