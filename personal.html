@@ -740,7 +740,7 @@
             // 查詢 Spotify User Top Artist
 
 
-            change_option = async function() {
+            change_option =  function() {
                 let time_range = document.querySelector('#time').value
                 if (time_range == 'fourWeek') {
                     let time = 'short_term'
@@ -753,17 +753,8 @@
                     let time = 'long_term'
                     console.log(time);
                 }
-                let UserTopArtist_response = await fetch(`https://api.spotify.com/v1/me/top/artists?time_range=${time}&limit=50&offset=0`, {
-                 headers: {
-                    'Authorization': `Bearer ${token}`
-                }})
-
-                let UserTopTrack_response = await fetch(`https://api.spotify.com/v1/me/top/tracks?time_range=${time}&limit=50&offset=0`, {
-                 headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            })
-            }
+                UserTopArtist_response 
+                UserTopTrack_response 
 
         let UserTopArtist_response = await fetch(`https://api.spotify.com/v1/me/top/artists?time_range=${time}&limit=50&offset=0`, {
                  headers: {
