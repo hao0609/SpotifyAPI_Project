@@ -12,7 +12,7 @@ login_btn.addEventListener('click',get_authorization)
     const clientId = '6d7c9aa0d8a440f5ba9bfd274e0a7ff0'; // Spotify Developer 中獲取
    //  const redirectUri = "http://127.0.0.1:5500/test.html" // 設定的重導網址 
     const redirectUri = "https://hao0609.github.io/SpotifyAPI_Project/personal.html"
-    const scope = 'user-read-private user-read-email'; // 需要的權限範圍
+    const scope = 'user-read-private user-read-email user-top-read'; // 需要的權限範圍
 
     // 構造授權 URL
     // encodeURIComponent 是網址編碼的方法
