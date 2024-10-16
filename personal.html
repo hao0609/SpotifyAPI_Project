@@ -699,9 +699,9 @@
         // let token = await getRefreshToken();
         console.log(token)
         console.log(new_token)
-        // if (!token) {
-        //     token = new_token
-        // }
+        if (!token) {
+            token = new_token
+        }
 
     //     token.then(response => {
     //     if (response.status === 401) {
@@ -711,27 +711,13 @@
     //     else{}
     // })
 
-        
-
-        
-
-        // 做第一次請求，然後判斷權杖是否有效 (判斷依據權杖錯誤請求回應狀態 401)
-        let UserProfile_response = await fetch(`https://api.spotify.com/v1/me`, {
-                 headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-        });
-            // 權杖失效讓權杖等於新權杖，並在請求一次
-            if (UserProfile_response.status === 401) {
-                console.log('Access token expired, refreshing token...');
-                let token = new_token; // Refresh access token
-                console.log(token);                
+            
+                    // 做第一次請求，然後判斷權杖是否有效 (判斷依據權杖錯誤請求回應狀態 401)
                 let UserProfile_response = await fetch(`https://api.spotify.com/v1/me`, {
-                 headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
-            }
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                });
             console.log(token)
 
             
