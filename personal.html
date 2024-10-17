@@ -698,12 +698,15 @@
         
 
         // 查詢 Spotify User 用戶資料 API
-        
+    
+    let time = 'short_term'
+
+    
     async function GetUserProfile(){
         let token = await getSpotifyToken();
         let new_token = await getRefreshToken();
 
-        let time = 'short_term'
+        
 
         console.log(token)
         console.log(new_token)
@@ -738,23 +741,6 @@
            
             console.log(token)
             // 查詢 Spotify User Top Artist
-
-
-            change_option = async function() {
-                let time_range = document.querySelector('#time').value
-                if (time_range == 'fourWeek') {
-                    let time = 'short_term'
-                    console.log(time)
-                    
-                }else if(time_range == 'sixMonth') {   
-                    let time = 'medium_term'
-                    console.log(time);
-                }else if (time_range == 'total') {
-                    let time = 'long_term'
-                    console.log(time);
-                }
-                 GetUserProfile()
-            }
 
         let UserTopArtist_response = await fetch(`https://api.spotify.com/v1/me/top/artists?time_range=${time}&limit=50&offset=0`, {
                  headers: {
@@ -833,7 +819,23 @@
         }   
         
         GetUserProfile()       
+       
         
+        change_option = async function() {
+                let time_range = document.querySelector('#time').value
+                if (time_range == 'fourWeek') {
+                    let time = 'short_term'
+                    console.log(time)
+                    
+                }else if(time_range == 'sixMonth') {   
+                    let time = 'medium_term'
+                    console.log(time);
+                }else if (time_range == 'total') {
+                    let time = 'long_term'
+                    console.log(time);
+                }
+                 GetUserProfile()
+            }
  }
     </script>
 </body>
