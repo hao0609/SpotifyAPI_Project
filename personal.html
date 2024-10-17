@@ -707,9 +707,11 @@
         let new_token = await getRefreshToken();
 
         
-
+        
         console.log(token)
         console.log(new_token)
+
+        console.log(time);
 
         // 判斷token為空值(代表就token失效)，讓新的token做替換
         if (!token) {
