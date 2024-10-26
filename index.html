@@ -994,8 +994,11 @@
 
     </script>
     <script>
-        
-        gsap.to('.top1_box',{
+        document.querySelector('.top1_box').addEventListener('load',function() {
+            
+            console.log('test');
+            
+            gsap.to('.top1_box',{
 
             duration: 1, 
             opacity: 1, 
@@ -1004,6 +1007,9 @@
             ease: "power2.out", // 平滑出現效果,
             stagger: 0.2
             })
+        })
+        
+
 
     </script>
 </body>
