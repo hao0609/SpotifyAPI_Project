@@ -555,114 +555,22 @@
                     </nav>
                 </div>
             </header>
-            <div class="title_box">
-
-                    <div class="tittle">
-                            <h1>您似乎很懂聽 ?</h1>
-                            <h3>點擊 Log in 以登錄您的 Spotify 帳戶，並查看您的音樂品味分析<br>
-                            透過分析結果立即向您的朋友炫耀您獨特而精緻的音樂品味。</h3>
-                    </div>
-                    <div class="login">
-                        <a  id="login_btn" class="btn login_btn"><h3 class="margin_btn">Log in</h3></a>
-                    </div>
-
+            <div class="wrapper" style="width: 100%;height: 100%;position: relative;transform-style: preserve-3d;">
+                <a href="" style="z-index: 10;position: absolute; top: 348px;left: 80px;right: 80px;background-color: red; width: 1376px; height: 1376px;transform: translate(0px, 0px);"></a>
+                <a href="" style="z-index: 8;position: absolute; top: 348px;left: 80px;right: 80px;background-color: orange; width: 1376px; height: 1376px;transform: translate3d(0px, -104.28px, -162.5px);"></a>
+                <a href="" style="z-index: 5;position: absolute; top: 348px;left: 80px;right: 80px;background-color: yellow; width: 1376px; height: 1376px;transform: translate3d(0px, -208.56px, -325px);"></a>
+                <a href="" style="z-index: 2;position: absolute; top: 348px;left: 80px;right: 80px;background-color: green; width: 1376px; height: 1376px;transform: translate3d(0px, -312.84px, -487.5px);"></a>
+                <a href="" style="position: absolute; top: 348px;left: 80px;right: 80px;background-color: blue; width: 1376px; height: 1376px;"></a>
+                <a href="" style="position: absolute; top: 348px;left: 80px;right: 80px;background-color: rgb(0, 1, 50); width: 1376px; height: 1376px;"></a>
+                <a href="" style="position: absolute; top: 348px;left: 80px;right: 80px;background-color: rgb(208, 0, 255); width: 1376px; height: 1376px;"></a>
+                <a href="" style="position: absolute; top: 348px;left: 80px;right: 80px;background-color: rgb(255, 0, 166); width: 1376px; height: 1376px;"></a>
+                <a href="" style="position: absolute; top: 348px;left: 80px;right: 80px;background-color: rgb(172, 172, 172); width: 1376px; height: 1376px;"></a>
+                <a href="" style="position: absolute; top: 348px;left: 80px;right: 80px;background-color: black; width: 1376px; height: 1376px;"></a>
             </div>
-
-            <div class="down">
-                <div class="icon-container">
-                    <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16" fill="none">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M14.207 1.707L13.5 1L7.50003 7L1.50003 1L0.79303 1.707L7.14603 8.061H7.85403L14.207 1.707ZM14.207 7.707L13.5 7L7.50003 13L1.50003 7L0.79303 7.707L7.14603 14.061H7.85403L14.207 7.707Z" fill="black"/>
-                        </svg>
-                    </div>
-                </div>
-            
-            <h3>下滑查看最新熱門排行榜</h3> 
-            </div>
-
-            <ul id="scene" class="scene">
-                
-                <div class="overlay">  </div>
-                <li data-depth="0.0" class="layer box"></li>
-                <li data-depth="-0.125555" class="layer">
-                    <div class="img_1 wave-back"></div>
-                </li>
-                <li data-depth="0.35" class="layer">
-                    <div class="img_2 wave-front"></div>
-                </li>
-                <li data-depth="-0.225555" class="layer">
-                    <div class="img_3 wave-front"></div>
-                </li>
-                <li data-depth="0.55" class="layer">
-                    <div class="img_4 wave-back"></div>
-                </li>
-                <li data-depth="-0.375555" class="layer">
-                    <div class="img_5 wave-back"></div>
-                </li>
-                <li data-depth="0.75" class="layer">
-                    <div class="img_6 wave-front"></div>
-                </li>
-                <li data-depth="-0.475555" class="layer">
-                    <div class="img_7 wave-back"></div>
-                </li>
-                <li data-depth="0.95" class="layer">
-                    <div class="img_8 wave-back"></div>
-                </li>
-                <li data-depth="-0.375555" class="layer">
-                    <div class="img_9 wave-front"></div>
-                </li>
-                <li data-depth="0.65" class="layer">
-                    <div class="img_10 wave-front"></div>
-                </li>
-            
-            </ul>
-            
 
 
         </div>
 
-        <div class="rank">
-             <div class="rank_title_box">
-                    <div class="rank_tittle h1 rank_tittle_top">最新熱門歌曲</div>
-                    <div class="rank_tittle h1 rank_tittle_bottom">最新熱門歌曲</div>
-            </div>
-
-            <div class="top_title_box">
-                <div class="rank_tittle h1 top_tittle_top">Top 50</div>
-                <div class="rank_tittle h1 top_tittle_bottom">Top 50</div>
-            </div>
-            
-            
-        </div>     
-
-        <div class="select_box">
-            <div class="contury_box">
-                <select name="country" id="country" class="option_box" onchange="change_option()">
-                    <option value="global" selected>全球</option>
-                    <option value="taiwan">台灣</option>
-                  </select>
-            </div>
-            <div class="time_box">
-                <select name="time" id="time" class="option_box" onchange="change_option()">
-                    <option value="today" selected>本日</option>
-                    <option value="week" >本周</option>
-                  </select>
-            </div>
-        </div>
-
-        <div class="rank_top50">
-
-            
-        </div>
-
-        <footer>
-
-            <div class="info"> 本網站為緯育TibaMe【第 一 期】前端工程師專業技術養成在職培訓班學員作品<br />僅供學習、展示之用途。<br />若有任何相關侵權問題，請聯繫 緯育TibaMe ，將立即下架該網站。 </div>
-            <div class="info_from">
-                <div class="info_text"><h3>Information from</h3></div>
-                <div class="info_icon"><img src="img/Spotify_Full_Logo_RGB_Green.png" alt=""></div>
-            </div>
-        </footer>
 
 
     </div>
@@ -783,16 +691,6 @@
                 toggleActions: "play none none reverse" // 定義滾動觸發的行為
             }
         });
-
-        gsap.to('.top1_box',{
-
-            duration: 1, 
-            opacity: 1, 
-            x: "0vw", // 向左移動
-            y: "0vh", // 向上移動
-            ease: "power2.out", // 平滑出現效果,
-            stagger: 0.2
-        })
 
 
 
