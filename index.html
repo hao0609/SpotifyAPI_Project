@@ -918,21 +918,6 @@
                    
                    
 
-                document.querySelectorAll('.top1_box').addEventListener('load',function() {
-                    
-                    console.log('test');
-                    
-                    gsap.to('.top1_box',{
-
-                    duration: 1, 
-                    opacity: 1, 
-                    x: "0vw", // 向左移動
-                    y: "0vh", // 向上移動
-                    ease: "power2.out", // 平滑出現效果,
-                    stagger: 0.2
-                    })
-                })
-        
                 
            }
             }
@@ -1010,8 +995,23 @@
 
     </script>
     <script>
+    
 
+    document.querySelectorAll('.top1_box').addEventListener('load',function() {
+                    
+                    console.log('test');
+                    
+                    gsap.to('.top1_box',{
 
+                    duration: 1, 
+                    opacity: 1, 
+                    x: "0vw", // 向左移動
+                    y: "0vh", // 向上移動
+                    ease: "power2.out", // 平滑出現效果,
+                    stagger: 0.2
+                    })
+                })
+        
 
     </script>
 </body>
