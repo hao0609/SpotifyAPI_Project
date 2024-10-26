@@ -636,16 +636,16 @@
             <div class="wrapper" style="width: 100%;height: 100%;position: relative;transform-style: preserve-3d;">
                 <div id="card-container">
     
-                    <div id="card1" class="card pos-1">1</div>
-                    <div id="card2" class="card pos-2">2</div>
-                    <div id="card3" class="card pos-3">3</div>
-                    <div id="card4" class="card pos-4">4</div>
-                    <div id="card5" class="card hide">5</div>
-                    <div id="card6" class="card hide">6</div>
-                    <div id="card7" class="card hide">7</div>
-                    <div id="card8" class="card hide">8</div>
-                    <div id="card9" class="card hide">9</div>
-                    <div id="card10" class="card hide">10</div>
+                    <div id="top_artist_1" class="card pos-1">1</div>
+                    <div id="top_artist_2" class="card pos-2">2</div>
+                    <div id="top_artist_3" class="card pos-3">3</div>
+                    <div id="top_artist_4" class="card pos-4">4</div>
+                    <div id="top_artist_5" class="card hide">5</div>
+                    <div id="top_artist_6" class="card hide">6</div>
+                    <div id="top_artist_7" class="card hide">7</div>
+                    <div id="top_artist_8" class="card hide">8</div>
+                    <div id="top_artist_9" class="card hide">9</div>
+                    <div id="top_artist_10" class="card hide">10</div>
                 </div>
                   <div id="arrow-right" class="arrow" style="z-index:101;">
                     <svg viewBox="0 0 5.99 9.86">
@@ -854,13 +854,12 @@
 
              let UserTopArtist_list = UserTopArtistData.items
 
-             let allGenres = [];
+             TopArtist_img_url = UserTopArtist_list[0].images[1].url //最愛藝人
 
-             for (let i = 0; i < UserTopArtist_list.length; i++) {
-                // UserTopArtist_list[i].genres
-                // console.log(UserTopArtist_list[i].genres);
-                allGenres = allGenres.concat(UserTopArtist_list[i].genres);
-                
+             for (let i = 1; i <= 10; i++) {
+                let Artist_img_url = UserTopArtist_list[i].images[1].url
+                 document.querySelector(`#top_artist_${i}`).style.backgroundImage=`url(${Artist_img_url})`
+                 
              }
 
             console.log(allGenres);
