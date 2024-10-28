@@ -947,6 +947,37 @@
 
     loop.time(time); //循環動畫的時間軸 
 
+
+    ScrollTrigger.create({
+    trigger: ".gallery", // 滾動的容器或動畫容器
+    start: 0,
+    end: "+=3000", // 自行設定總長度
+    pin: true, // 固定內容
+    onUpdate: (self) => {
+        let scrollProgress = self.progress * loop.duration();
+        gsap.to(loop, { totalTime: scrollProgress, duration: 0.5, overwrite: true });
+        
+        // 無縫滾動的邏輯
+        if (self.progress >= 1 && self.direction > 0) {
+            wrapForward();
+        } else if (self.progress <= 0 && self.direction < 0) {
+            wrapBackward();
+        }
+    }
+});
+
+// 更新迴圈播放方向
+function wrapForward() {
+    time += loop.duration();
+    loop.totalTime(loop.totalTime() + loop.duration());
+}
+
+function wrapBackward() {
+    time -= loop.duration();
+    loop.totalTime(loop.totalTime() - loop.duration());
+}
+
+
   //每一張卡片的執行動畫函數
 
   function cardAnimation(card) {
