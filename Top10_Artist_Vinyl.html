@@ -542,6 +542,9 @@
             -moz-box-shadow: 3px 2px 10px -5px rgba(0,0,0,0.51);
             background-color:#fff;
             position: absolute;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .arrow svg{
@@ -856,7 +859,7 @@
 
              TopArtist_img_url = UserTopArtist_list[0].images[1].url //最愛藝人
 
-             for (let i = 1; i <= 10; i++) {
+             for (let i = 0; i < 10; i++) {
                 let Artist_img_url = UserTopArtist_list[i].images[1].url
                  document.querySelector(`#top_artist_${i}`).style.backgroundImage=`url(${Artist_img_url})`
                  
