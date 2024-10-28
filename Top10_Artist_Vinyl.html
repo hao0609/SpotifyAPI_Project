@@ -557,6 +557,13 @@
             justify-content: center;
             border-radius: 5px 0px 0px 0px;
         }
+        .artist_name{
+            text-align: center;
+            position: relative;
+            top: 180px;            
+            color: #ccc;
+            font-size: xx-large
+        }
 
         .arrow svg{
             width: 10px;
@@ -624,22 +631,16 @@
             <div class="wrapper" style="width: 100%;height: 100%;position: relative;transform-style: preserve-3d;">
                 <div id="card-container">
     
-                    <div id="top_artist_1" class="card pos-1">
-                        <div class="card_font">
-                            <h3>1</h3>
-                        </div>
-                        <div class="artist_name"> Justin Bibber
-                        </div>
-                    </div>
-                    <div id="top_artist_2" class="card pos-2"><div class="card_font"><h3>2</h3></div></div>
-                    <div id="top_artist_3" class="card pos-3"><div class="card_font"><h3>3</h3></div></div>
-                    <div id="top_artist_4" class="card pos-4"><div class="card_font"><h3>4</h3></div></div>
-                    <div id="top_artist_5" class="card hide"><div class="card_font"><h3>5</h3></div></div>
-                    <div id="top_artist_6" class="card hide"><div class="card_font"><h3>6</h3></div></div>
-                    <div id="top_artist_7" class="card hide"><div class="card_font"><h3>7</h3></div></div>
-                    <div id="top_artist_8" class="card hide"><div class="card_font"><h3>8</h3></div></div>
-                    <div id="top_artist_9" class="card hide"><div class="card_font"><h3>9</h3></div></div>
-                    <div id="top_artist_10" class="card hide"><div class="card_font"><h3>10</h3></div></div>
+                    <div id="top_artist_1" class="card pos-1"><div class="card_font"><h3>1</h3></div><div class="artist_name"></div></div>
+                    <div id="top_artist_2" class="card pos-2"><div class="card_font"><h3>2</h3></div><div class="artist_name"></div></div>
+                    <div id="top_artist_3" class="card pos-3"><div class="card_font"><h3>3</h3></div><div class="artist_name"></div></div>
+                    <div id="top_artist_4" class="card pos-4"><div class="card_font"><h3>4</h3></div><div class="artist_name"></div></div>
+                    <div id="top_artist_5" class="card hide"><div class="card_font"><h3>5</h3></div><div class="artist_name"></div></div>
+                    <div id="top_artist_6" class="card hide"><div class="card_font"><h3>6</h3></div><div class="artist_name"></div></div>
+                    <div id="top_artist_7" class="card hide"><div class="card_font"><h3>7</h3></div><div class="artist_name"></div></div>
+                    <div id="top_artist_8" class="card hide"><div class="card_font"><h3>8</h3></div><div class="artist_name"></div></div>
+                    <div id="top_artist_9" class="card hide"><div class="card_font"><h3>9</h3></div><div class="artist_name"></div></div>
+                    <div id="top_artist_10" class="card hide"><div class="card_font"><h3>10</h3></div><div class="artist_name"></div></div>
                 </div>
                   <div id="arrow-right" class="arrow" style="z-index:101;">
                     <svg viewBox="0 0 5.99 9.86">
@@ -850,10 +851,13 @@
 
              TopArtist_img_url = UserTopArtist_list[0].images[1].url //最愛藝人
 
+
+
              for (let i = 0; i < 10; i++) {
                 let Artist_img_url = UserTopArtist_list[i].images[0].url
                  document.querySelector(`#top_artist_${i+1}`).style.backgroundImage=`url(${Artist_img_url})`
-                 
+                 let Artist_name = UserTopArtist_list[i].name
+                 document.querySelector(`#top_artist_${i+1}>.artist_name`).innerText = Artist_name
              }
 
             console.log(allGenres);
