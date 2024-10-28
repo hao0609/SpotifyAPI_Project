@@ -968,13 +968,11 @@
 
 // 更新迴圈播放方向
 function wrapForward() {
-    time += loop.duration();
-    loop.totalTime(loop.totalTime() + loop.duration());
+    movePlayhead(spacing)
 }
 
 function wrapBackward() {
-    time -= loop.duration();
-    loop.totalTime(loop.totalTime() - loop.duration());
+    movePlayhead(spacing)
 }
 
 
