@@ -550,6 +550,12 @@
             width: 50px;
             height: 50px;
             background-color: #000000;
+            text-align: center;
+            color: white;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            border-radius: 5px 0px 0px 0px;
         }
 
         .arrow svg{
@@ -937,7 +943,7 @@
     
     
     return gsap.timeline()  //回傳目前gsap動畫時間軸
-      .set(card, { y: -300, scale: 0.6, zIndex: 0, autoAlpha: 1, immediateRender: false }, 0.01) // 設定初始動畫呈現狀態
+      .set(card, { y: -400, scale: 0.6, zIndex: 0, autoAlpha: 1, immediateRender: false }, 0.01) // 設定初始動畫呈現狀態
       // {Y 軸位置設為 -40px  , 卡片縮小到 90% , 順序最底 , 將卡片設為完全可見, 防止動畫初始化時自動渲染} ,0.01執行
 
       .to(card, { y: 0, scale: 1, zIndex: 100, ease: "none", duration: zoomDuration, immediateRender: false }, spacing) //進行縮放動畫
