@@ -860,7 +860,7 @@
              TopArtist_img_url = UserTopArtist_list[0].images[1].url //最愛藝人
 
              for (let i = 0; i < 10; i++) {
-                let Artist_img_url = UserTopArtist_list[i].images[1].url
+                let Artist_img_url = UserTopArtist_list[i].images[0].url
                  document.querySelector(`#top_artist_${i+1}`).style.backgroundImage=`url(${Artist_img_url})`
                  
              }
