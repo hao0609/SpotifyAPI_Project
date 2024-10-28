@@ -861,7 +861,7 @@
 
              for (let i = 0; i < 10; i++) {
                 let Artist_img_url = UserTopArtist_list[i].images[1].url
-                 document.querySelector(`#top_artist_${i}`).style.backgroundImage=`url(${Artist_img_url})`
+                 document.querySelector(`#top_artist_${i+1}`).style.backgroundImage=`url(${Artist_img_url})`
                  
              }
 
