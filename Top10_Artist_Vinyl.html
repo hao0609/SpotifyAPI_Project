@@ -624,6 +624,24 @@
             width: 1200px;
             margin: 20px auto;
         }
+        .change_mode{
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .vinylMode{
+         margin: 0 5px;   
+        }
+        .fieldMode{
+         margin: 0 5px;   
+        }
+        .fieldMode a{
+         color: grey;
+         text-decoration: none;
+        }
+        .fieldMode a:hover{
+         color: rgb(0, 0, 0);
+        }
 
 
         
@@ -658,6 +676,9 @@
                 </div>
             </header>
             <div class="wrapper" style="width: 100%;height: 100%;position: relative;transform-style: preserve-3d;">
+                <div class="change_mode">
+                    <div class="vinylMode">黑膠模式</div>  /  <div class="fieldMode"><a href="">欄位模式</a></div>
+                </div>
                 <div class="change_option">
                      <div class="genre"><a href="">最愛的音樂風格</a></div>
                      <div class="artist">最愛的藝人</div>
@@ -1059,7 +1080,7 @@ function scrubTo(totalTime) {    // 設置滾動時要到相對應的位置
     
     
     return gsap.timeline()  //回傳目前gsap動畫時間軸
-      .set(card, { y: -400, scale: 0.6, zIndex: 0, autoAlpha: 1, immediateRender: false }, 0.01) // 設定初始動畫呈現狀態
+      .set(card, { y: -300, scale: 0.6, zIndex: 0, autoAlpha: 1, immediateRender: false }, 0.01) // 設定初始動畫呈現狀態
       // {Y 軸位置設為 -40px  , 卡片縮小到 90% , 順序最底 , 將卡片設為完全可見, 防止動畫初始化時自動渲染} ,0.01執行
 
       .to(card, { y: 0, scale: 1, zIndex: 100, ease: "none", duration: zoomDuration, immediateRender: false }, spacing) //進行縮放動畫
