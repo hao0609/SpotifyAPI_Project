@@ -908,7 +908,7 @@
 
 
              for (let i = 0; i < 10; i++) {
-                let Track_img_url = UserTopTrack_list[i].images[0].url
+                let Track_img_url = UserTopTrack_list[i].album.images[0].url
                  document.querySelector(`#top_track_${i+1}`).style.backgroundImage=`url(${Track_img_url})`
                  let Track_name = UserTopTrack_list[i].name
                  document.querySelector(`#top_track_${i+1}>.track_name`).innerText = Track_name
