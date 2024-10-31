@@ -716,8 +716,8 @@
 
         window.addEventListener('load',doFirst)
           function doFirst() {
-            
-            //gsap.set(window, { scrollTo: { y: 0.3821335474268383*1000, autoKill: false } });
+            window.scrollTo(0, 0.0000001)
+            // gsap.set(window, { scrollTo: { y: 0.0008009992109217181, autoKill: false } });
 
             let accessToken
             let refreshToken
@@ -964,9 +964,9 @@
 		start: 0,
 		onUpdate(self) { //表示滾動軸的進度
             console.log("Scroll progress:", self.progress);
-			if (self.progress === 1 && self.direction > 0 && !self.wrapping) {  // 如果 滾動軸 = 1 (代表到底) 和 滾動軸向下 和 滾動軸的動畫進度不處於循環狀態時
+			if (self.progress >= 1 && self.direction > 0 && !self.wrapping) {  // 如果 滾動軸 = 1 (代表到底) 和 滾動軸向下 和 滾動軸的動畫進度不處於循環狀態時
 				wrapForward(self);                                              // 去執行 往前移的動畫函數
-			} else if (self.progress < 1e-5 && self.direction < 0 && !self.wrapping) {  // 如果 滾動軸 = 0.0001 (非常靠近0，非常靠近頂端位置) 和 滾動軸向上 和 滾動軸的動畫進度不處於循環狀態時
+			} else if (Math.abs(self.progress) < 1e-5 && self.direction < 0 && !self.wrapping || window.scrollY==0) {  // 如果 滾動軸 = 0.0001 (非常靠近0，非常靠近頂端位置) 和 滾動軸向上 和 滾動軸的動畫進度不處於循環狀態時
 				wrapBackward(self);                                                     // 就去執行 往後移的動畫函數
 			} else {
               scrub.vars.totalTime = snap((iteration + self.progress) * seamlessLoop.duration());
@@ -1003,7 +1003,7 @@ function scrubTo(totalTime) {    // 設置滾動時要到相對應的位置
 	let progress = (totalTime - seamlessLoop.duration() * iteration) / seamlessLoop.duration();
 	if (progress > 1) {
 		wrapForward(trigger);
-	} else if (progress < 0) {
+	} else if (progress <= 0 ) {
 		wrapBackward(trigger);
 	} else {
 		trigger.scroll(trigger.start + progress * (trigger.end - trigger.start));
@@ -1081,7 +1081,7 @@ function buildSeamlessLoop(cards, spacing, animateFunc) {
 
   // Triple the cards for smooth looping and add animations
 cards.concat(cards).concat(cards).forEach((item, i) => {
-    let cardToAnimate = cards[i % cards.length];
+    let cardToAnimate = cards[(i+4) % cards.length];
     console.log("Index:", i, "Card to Animate:", cardToAnimate); 
     let anim = animateFunc(cardToAnimate);
     rawSequence.add(anim, i * spacing);
