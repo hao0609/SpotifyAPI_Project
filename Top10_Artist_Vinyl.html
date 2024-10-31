@@ -732,7 +732,7 @@
 
         window.addEventListener('load',doFirst)
           function doFirst() {
-            window.scrollTo(0, 0.0000001)
+            
             // gsap.set(window, { scrollTo: { y: 0.0008009992109217181, autoKill: false } });
 
             let accessToken
@@ -1081,6 +1081,7 @@ function scrubTo(totalTime) {    // 設置滾動時要到相對應的位置
 
 //建立循環loop
 function buildSeamlessLoop(cards, spacing, animateFunc) {
+    window.scrollTo(0, 0.0000001)
     console.log("Building Seamless Loop");
   let rawSequence = gsap.timeline({ paused: true }),
       seamlessLoop = gsap.timeline({
