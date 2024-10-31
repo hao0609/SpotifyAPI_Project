@@ -881,70 +881,10 @@
                             'Authorization': `Bearer ${token}`
                         }
         });
-        console.log(token)
-
-            
-            const UserProfileData = await UserProfile_response.json();
-            console.log(UserProfileData);
-
-            let userName = UserProfileData.display_name
-            let userImage_url = UserProfileData.images[1].url
-
-            console.log(userName);
-            console.log(userImage_url);
-            
-            // document.querySelector('.img_user').style.backgroundImage=`url(${userImage_url})`
-
-            // document.querySelector('.user_name>h3').innerText = userName
-            // document.querySelector('#userName').innerText = userName
-            
+ 
            
             console.log(token)
-            // 查詢 Spotify User Top Artist
-
-        let UserTopArtist_response = await fetch(`https://api.spotify.com/v1/me/top/artists?time_range=${time}&limit=50&offset=0`, {
-                 headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
-
-            const UserTopArtistData = await UserTopArtist_response.json();
-             console.log(UserTopArtistData.items)
-
-             let UserTopArtist_list = UserTopArtistData.items
-
-             TopArtist_img_url = UserTopArtist_list[0].images[1].url //最愛藝人
-
-
-
-            const genreCount = allGenres.reduce((acc, genre) => {
-            acc[genre] = (acc[genre] || 0) + 1;  // 如果 genre 已經存在於 acc 中，則次數加 1，否則初始化為 1
-            return acc;
-            }, {});
-
-            console.log(genreCount);
             
-            const sortedGenres = Object.entries(genreCount)
-
-            .sort((a, b) => b[1] - a[1]);  // 根據出現次數（a[1] 和 b[1]）降序排列
-
-            // 顯示排序後的結果
-            console.log(sortedGenres);
-
-            let genreTop = sortedGenres[0]
-            let genreTopName = genreTop[0]
-
-            console.log(genreTopName);
-
-            document.querySelector('#top_genres').innerText = genreTopName  //最愛風格
-
-            TopArtist_name = UserTopArtist_list[0].name
-            document.querySelector('#top_artist_name>h3').innerText = TopArtist_name
-            TopArtist_img_url = UserTopArtist_list[0].images[1].url //最愛藝人
-            console.log(TopArtist_img_url);
-            document.querySelector('#top_artist').style.backgroundImage=`url(${TopArtist_img_url})`
-
-
 
             // 查詢 Spotify User Top Track
             let UserTopTrack_response = await fetch(`https://api.spotify.com/v1/me/top/tracks?time_range=${time}&limit=50&offset=0`, {
