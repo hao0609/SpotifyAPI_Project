@@ -419,10 +419,10 @@
         .option_box{
             text-align: center;
             padding-right: 20px;
-            font-size: 30px;
+            font-size: 20px;
             font-weight: bold;
             font-weight:  700;
-            width: 150px;
+            width: 120px;
             height: 50px;
             background-color: #ffffff;
             border: none;
@@ -439,7 +439,7 @@
         }
         option{
             
-            font-size: 30px;
+            font-size: 20px;
             font-weight: bold;
             font-weight:  700;
         }
@@ -595,6 +595,33 @@
             justify-content: center;
             align-items: center;
         }
+        .change_option{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .genre a{
+            color: grey;
+            text-decoration: none;
+        }
+        .genre a:hover{
+            color: black;
+        }
+
+        .artist a{
+            color: black;
+            text-decoration: none;
+        }
+        .track a{
+            color: grey;
+            text-decoration: none;
+        }
+        .track a:hover{
+            color: black;
+        }
+        .time_box.mar.w-1200{
+            width: 1200px;
+            margin: 20px auto;
+        }
 
 
         
@@ -629,6 +656,18 @@
                 </div>
             </header>
             <div class="wrapper" style="width: 100%;height: 100%;position: relative;transform-style: preserve-3d;">
+                <div class="change_option">
+                     <div class="genre"><a href="">最愛的音樂風格</a></div>
+                     <div class="artist"><a href="">最愛的藝人</a></div>
+                     <div class="track"><a href="">最愛的歌曲</a></div>
+                </div>
+                <div class="time_box mar w-1200">
+                    <select name="time" id="time" class="option_box" onchange="change_option()">
+                        <option value="fourWeek" selected> 4 周</option>
+                        <option value="sixMonth" > 6 個月</option>
+                        <option value="total" >總時間</option>
+                      </select>
+                </div>
                 <div id="card-container">
     
                     <div id="top_artist_1" class="card pos-1"><div class="card_font"><h3>1</h3></div><div class="artist_name"></div></div>
