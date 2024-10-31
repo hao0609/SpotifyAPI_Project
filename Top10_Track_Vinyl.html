@@ -916,7 +916,6 @@
              TopArtist_img_url = UserTopArtist_list[0].images[1].url //最愛藝人
 
 
-            console.log(allGenres);
 
             const genreCount = allGenres.reduce((acc, genre) => {
             acc[genre] = (acc[genre] || 0) + 1;  // 如果 genre 已經存在於 acc 中，則次數加 1，否則初始化為 1
@@ -969,9 +968,9 @@
 
 
              for (let i = 0; i < 10; i++) {
-                let Track_img_url = UserTopArtist_list[i].images[0].url
+                let Track_img_url = UserTopTrack_list[i].images[0].url
                  document.querySelector(`#top_track_${i+1}`).style.backgroundImage=`url(${Track_img_url})`
-                 let Track_name = UserTopArtist_list[i].name
+                 let Track_name = UserTopTrack_list[i].name
                  document.querySelector(`#top_track_${i+1}>.track_name`).innerText = Track_name
              }
 
