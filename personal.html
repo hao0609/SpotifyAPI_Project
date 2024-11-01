@@ -851,7 +851,8 @@
 
     <script>
         let logOut_btn = document.querySelector('#log_out').addEventListener('click',function() {
- 
+            console.log("Test");
+            
             var cookies = document.cookie.split("; ");
             for (var c = 0; c < cookies.length; c++) {
                 var d = window.location.hostname.split(".");
