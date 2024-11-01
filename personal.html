@@ -851,6 +851,8 @@
 
     <script>
         let logOut_btn = document.querySelector('#log_out').addEventListener('click',function() {
+
+            localStorage.clear();
             
             // 刪除指定的 cookie
             document.cookie = "remember=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=accounts.spotify.com; SameSite=Lax";
