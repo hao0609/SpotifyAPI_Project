@@ -851,13 +851,15 @@
 
     <script>
         let logOut_btn = document.querySelector('#log_out').addEventListener('click',function() {
-            
-            localStorage.removeItem('New_API_token');
-            localStorage.removeItem('refresh_token');
+        // 清除 localStorage
+        localStorage.clear();
 
-            accessToken =''
-            refreshToken =''
-            New_API_token =''
+        // 清除所有 cookie
+        document.cookie.split(";").forEach((cookie) => {
+            const name = cookie.split("=")[0].trim();
+            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+        });
+
         })
 
     </script>
