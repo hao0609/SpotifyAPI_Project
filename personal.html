@@ -851,26 +851,12 @@
 
     <script>
         let logOut_btn = document.querySelector('#log_out').addEventListener('click',function() {
+            
+            // 刪除指定的 cookie
+            document.cookie = "remember=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=accounts.spotify.com; SameSite=Lax";
+            document.cookie = "sp_dc=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.spotify.com; SameSite=None; Secure";
             console.log("Test");
 
-            document.cookie = "__Host-device_id=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.spotify.com; Secure";
-            document.cookie = "__Secure-TPASESSION=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.spotify.com; Secure";
-
-            
-            var cookies = document.cookie.split("; ");
-            for (var c = 0; c < cookies.length; c++) {
-                var d = window.location.hostname.split(".");
-                while (d.length > 0) {
-                    var cookieBase = encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + d.join('.') + ' ;path=';
-                    var p = location.pathname.split('/');
-                    document.cookie = cookieBase + '/';
-                    while (p.length > 0) {
-                        document.cookie = cookieBase + p.join('/');
-                        p.pop();
-                    };
-                    d.shift();
-                }
-            }
         })
 
     </script>
