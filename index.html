@@ -667,53 +667,7 @@
 
     </div>
     
-    <script>
-        window.addEventListener('load',doFirst)
-          function doFirst() {
-            const scene= document.getElementById('scene');
-            const parallax = new Parallax(scene,{relativeInput:true,});
 
-            // 縮放 position 位置
-            let parent = document.querySelector('.wrapper');
-            let parentWidth = parent.offsetWidth;
-            let parentHeight = parent.offsetHeight;  
-            console.log(parentWidth,parentHeight);
-                     
-            
-            let img_1_W = document.querySelector('.img_1').style.top = (225/parentHeight) * 100+'%'
-            let img_1_H = document.querySelector('.img_1').style.left = (550/parentWidth) * 100+'%'
-
-            let img_2_W = document.querySelector('.img_2').style.top = (170/parentHeight) * 100+'%'
-            let img_2_H = document.querySelector('.img_2').style.left = (857/parentWidth) * 100+'%'
-
-            let img_3_W = document.querySelector('.img_3').style.top = (270/parentHeight) * 100+'%'
-            let img_3_H = document.querySelector('.img_3').style.left = (1211/parentWidth) * 100+'%'
-
-            let img_4_W = document.querySelector('.img_4').style.top = (885/parentHeight) * 100+'%'
-            let img_4_H = document.querySelector('.img_4').style.left = (1270/parentWidth) * 100+'%'
-
-            let img_5_W = document.querySelector('.img_5').style.top = (950/parentHeight) * 100+'%'
-            let img_5_H = document.querySelector('.img_5').style.left = (968/parentWidth) * 100+'%'
-
-            let img_6_W = document.querySelector('.img_6').style.top = (875/parentHeight) * 100+'%'
-            let img_6_H = document.querySelector('.img_6').style.left = (641/parentWidth) * 100+'%'
-
-            let img_7_W = document.querySelector('.img_7').style.top = (900/parentHeight) * 100+'%'
-            let img_7_H = document.querySelector('.img_7').style.left = (299/parentWidth) * 100+'%'
-
-            let img_8_W = document.querySelector('.img_8').style.top = (955/parentHeight) * 100+'%'
-            let img_8_H = document.querySelector('.img_8').style.left = (50/parentWidth) * 100+'%'
-
-            let img_9_W = document.querySelector('.img_9').style.top = (135/parentHeight) * 100+'%'
-            let img_9_H = document.querySelector('.img_9').style.left = (250/parentWidth) * 100+'%'
-
-            let img_10_W = document.querySelector('.img_10').style.top = (225/parentHeight) * 100+'%'
-            let img_10_H = document.querySelector('.img_10').style.left = (10/parentWidth) * 100+'%'
-
-    
-          }
-        	
-    </script>
 
     <script>
             gsap.to(".tittle", { 
@@ -1014,5 +968,53 @@
         
 
     </script>
+
+<script>
+    window.addEventListener('load',doFirst)
+      function doFirst() {
+        const scene= document.getElementById('scene');
+        const parallax = new Parallax(scene,{relativeInput:true,});
+
+        // 縮放 position 位置
+        let parent = document.querySelector('.wrapper');
+        let parentWidth = parent.offsetWidth;
+        let parentHeight = parent.offsetHeight;  
+        console.log(parentWidth,parentHeight);
+                 
+        
+        let img_1_W = document.querySelector('.img_1').style.top = (225/parentHeight) * 100+'%'
+        let img_1_H = document.querySelector('.img_1').style.left = (550/parentWidth) * 100+'%'
+
+        let img_2_W = document.querySelector('.img_2').style.top = (170/parentHeight) * 100+'%'
+        let img_2_H = document.querySelector('.img_2').style.left = (857/parentWidth) * 100+'%'
+
+        let img_3_W = document.querySelector('.img_3').style.top = (270/parentHeight) * 100+'%'
+        let img_3_H = document.querySelector('.img_3').style.left = (1211/parentWidth) * 100+'%'
+
+        let img_4_W = document.querySelector('.img_4').style.top = (885/parentHeight) * 100+'%'
+        let img_4_H = document.querySelector('.img_4').style.left = (1270/parentWidth) * 100+'%'
+
+        let img_5_W = document.querySelector('.img_5').style.top = (950/parentHeight) * 100+'%'
+        let img_5_H = document.querySelector('.img_5').style.left = (968/parentWidth) * 100+'%'
+
+        let img_6_W = document.querySelector('.img_6').style.top = (875/parentHeight) * 100+'%'
+        let img_6_H = document.querySelector('.img_6').style.left = (641/parentWidth) * 100+'%'
+
+        let img_7_W = document.querySelector('.img_7').style.top = (900/parentHeight) * 100+'%'
+        let img_7_H = document.querySelector('.img_7').style.left = (299/parentWidth) * 100+'%'
+
+        let img_8_W = document.querySelector('.img_8').style.top = (955/parentHeight) * 100+'%'
+        let img_8_H = document.querySelector('.img_8').style.left = (50/parentWidth) * 100+'%'
+
+        let img_9_W = document.querySelector('.img_9').style.top = (135/parentHeight) * 100+'%'
+        let img_9_H = document.querySelector('.img_9').style.left = (250/parentWidth) * 100+'%'
+
+        let img_10_W = document.querySelector('.img_10').style.top = (225/parentHeight) * 100+'%'
+        let img_10_H = document.querySelector('.img_10').style.left = (10/parentWidth) * 100+'%'
+
+
+      }
+        
+</script>
 </body>
 </html>
