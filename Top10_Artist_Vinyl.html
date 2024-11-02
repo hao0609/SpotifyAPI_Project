@@ -549,6 +549,7 @@
         }
 
         .card_font{
+            position: absolute;
             width: 50px;
             height: 50px;
             background-color: #000000;
@@ -662,17 +663,20 @@
 
         #grid-container .grid-card{
 
-
+            /* border: 1px solid; */
         }
         .col-1,.col-3{
             margin-top: 50px;
         }
+        /* .col-2{
+            margin-top: 20px;
+        } */
 
 
         .grid_img{
         width: 380px;
         height: 380px;
-        /* border: 1px solid red; */
+        border: 1px solid red;
         background-size: cover;
         }
 
@@ -749,28 +753,68 @@
 
 
                 <div id="grid-container">
+                    <div class="col-1 grid-card card_2">
+                        <div class="card_font"><h3>2</h3></div>
+                        <div class="grid_img"></div>
+                        <div id="grid_artist_name">artist_name</div>                             
+                   </div>
+                    
+                    <div class="col-2 grid-card card_1">
+                        <div class="card_font"><h3>1</h3></div>
+                        <div class="grid_img"></div>
+                        <div id="grid_artist_name">artist_name</div>                             
+                   </div>
+                    
+                    <div class="col-3 grid-card card_3">
+                        <div class="card_font"><h3>3</h3></div>
+                        <div class="grid_img"></div>
+                        <div id="grid_artist_name">artist_name</div>                            
+                   </div>
 
-                        <!-- <div class="col-1 grid-card">
-                            <div class="grid_img"></div>
-                            <div id="grid_artist_name"></div>                             
-                        </div>
-                        <div class="col-2 grid-card">
-                            <div class="grid_img"></div>
-                            <div id="grid_artist_name"></div>                             
-                        </div>
-                        <div class="col-3 grid-card">
-                            <div class="grid_img"></div>
-                            <div id="grid_artist_name"></div>                             
-                        </div>
-                        <div class="col-4 grid-card">
-                            <div class="grid_img"></div>
-                            <div id="grid_artist_name"></div>                             
-                        </div>
-                        <div class="col-5 grid-card">
-                            <div class="grid_img"></div>
-                            <div id="grid_artist_name"></div>                             
-                        </div> -->
 
+                    <div class="col-1 grid-card card_5">
+                        <div class="card_font"><h3>5</h3></div>
+                        <div class="grid_img"></div>
+                        <div id="grid_artist_name">artist_name</div>                             
+                   </div>
+                    
+                    <div class="col-2 grid-card card_4">
+                        <div class="card_font"><h3>4</h3></div>
+                        <div class="grid_img"></div>
+                        <div id="grid_artist_name">artist_name</div>                             
+                   </div>
+                    
+                    <div class="col-3 grid-card card_6">
+                        <div class="card_font"><h3>6</h3></div>
+                        <div class="grid_img"></div>
+                        <div id="grid_artist_name">artist_name</div>                            
+                   </div>
+
+                    <div class="col-1 grid-card card_8">
+                        <div class="card_font"><h3>8</h3></div>
+                        <div class="grid_img"></div>
+                        <div id="grid_artist_name">artist_name</div>                             
+                   </div>
+                    
+                    <div class="col-2 grid-card card_7">
+                        <div class="card_font"><h3>7</h3></div>
+                        <div class="grid_img"></div>
+                        <div id="grid_artist_name">artist_name</div>                             
+                   </div>
+                    
+                    <div class="col-3 grid-card card_9">
+                        <div class="card_font"><h3>9</h3></div>
+                        <div class="grid_img"></div>
+                        <div id="grid_artist_name">artist_name</div>                            
+                   </div>
+
+                    <div class="col-2 grid-card card_10">
+                        <div class="card_font"><h3>10</h3></div>
+                        <div class="grid_img"></div>
+                        <div id="grid_artist_name">artist_name</div>                             
+                   </div>
+                    
+                    
                         
 
                 </div>
@@ -782,26 +826,7 @@
 
 
     </div>
-    <script>
-    let grid_innerText = ''
 
-    const grid_container = document.querySelector('#grid-container')
-    console.log(grid_container);
-    
-
-     for (let i = 0; i < 10; i++) {
-
-        grid_innerText += `
-        <div class="col-${i+1} grid-card">
-            <div class="grid_img"></div>
-            <div id="grid_artist_name"></div>                             
-       </div>
-        `
-
-       grid_container.innerHTML = grid_innerText
-     }
-     console.log(grid_innerText);
-    </script>
     <script async src="authorization.js"></script>
     <script>
 
@@ -947,17 +972,16 @@
              TopArtist_img_url = UserTopArtist_list[0].images[1].url //最愛藝人
 
 
-             
 
 
 
              for (let i = 0; i < 10; i++) {
                 let Artist_img_url = UserTopArtist_list[i].images[0].url
                  document.querySelector(`#top_artist_${i+1}`).style.backgroundImage=`url(${Artist_img_url})`
-                 document.querySelector(`.col-${i+1}>.grid_img`).style.backgroundImage=`url(${Artist_img_url})`
+                 document.querySelector(`.card_${i+1}>.grid_img`).style.backgroundImage=`url(${Artist_img_url})`
                  let Artist_name = UserTopArtist_list[i].name
                  document.querySelector(`#top_artist_${i+1}>.artist_name`).innerText = Artist_name
-                 document.querySelector(`.col-${i+1}>#grid_artist_name`).innerText = Artist_name
+                 document.querySelector(`.card_${i+1}>#grid_artist_name`).innerText = Artist_name
 
 
                  
