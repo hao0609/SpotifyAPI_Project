@@ -633,10 +633,12 @@
             margin: 10px 0;
         }
         .vinylMode{
-         margin: 0 5px;   
+         margin: 0 5px;  
+         cursor: pointer; 
         }
         .fieldMode{
-         margin: 0 5px;   
+         margin: 0 5px;  
+         cursor: pointer;  
         }
         .fieldMode a{
          color: grey;
@@ -1315,11 +1317,15 @@ cards.concat(cards).concat(cards).forEach((item, i) => {
 
         function cancelLooping() {
             console.log("TEST_grid");
-
+            window.scrollTo(0, 0)
             card_container.style.display = "none"
             grid_container.style.display = "flex"
 
-            window.scrollTo(0, 0)
+            document.querySelector('.fieldMode>a').style.color="black"
+            document.querySelector('.vinylMode>a').style.color="grey"
+
+
+            
             trigger.kill(); // 停止 ScrollTrigger 觸發效果
             scrub.pause();   // 停止滾動控制動畫
         }
@@ -1327,6 +1333,10 @@ cards.concat(cards).concat(cards).forEach((item, i) => {
 
         function backLooping() {
             console.log("TEST_vinyl");
+
+
+            document.querySelector('.fieldMode>a').style.color="grey"
+            document.querySelector('.vinylMode>a').style.color="black"
 
             card_container.style.display = "flex"
             grid_container.style.display = "none"
