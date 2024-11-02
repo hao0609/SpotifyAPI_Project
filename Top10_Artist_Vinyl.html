@@ -531,6 +531,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            display: none;
         }
         #card-container .card{
 
@@ -645,6 +646,37 @@
         }
 
 
+        #grid-container{
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            width: 1200px;
+            margin: auto;
+        }
+        
+        .row-1{
+            display: flex;
+        }
+
+
+
+        #grid-container .grid-card{
+
+
+        }
+        .col-1,.col-3{
+            margin-top: 50px;
+        }
+
+
+        .grid_img{
+        width: 380px;
+        height: 380px;
+        border: 1px solid red;
+        }
+
+
+
         @media screen and (max-width: 430px){ 
             #card-container .card {    
                 width: 400px;
@@ -684,7 +716,7 @@
             </header>
             <div class="wrapper" style="width: 100%;height: 100%;position: relative;transform-style: preserve-3d;">
                 <div class="change_mode">
-                    <div class="vinylMode">黑膠模式</div>  /  <div class="fieldMode"><a href="">欄位模式</a></div>
+                    <div class="vinylMode">黑膠模式</div>  /  <div class="fieldMode"><a >欄位模式</a></div>
                 </div>
                 <div class="change_option">
                      <div class="genre"><a href="Top10_Genre_Vinyl.html">最愛的音樂風格</a></div>
@@ -711,16 +743,28 @@
                     <div id="top_artist_9" class="card hide"><div class="card_font"><h3>9</h3></div><div class="artist_name"></div></div>
                     <div id="top_artist_10" class="card hide"><div class="card_font"><h3>10</h3></div><div class="artist_name"></div></div>
                 </div>
-                  <!-- <div id="arrow-right" class="arrow" style="z-index:101;">
-                    <svg viewBox="0 0 5.99 9.86">
-                      <polyline points="5.24 9.11 1.06 4.93 5.24 0.75" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"></polyline>
-                    </svg>
-                  </div>
-                  <div id="arrow-left" class="arrow" style="z-index:101;">
-                    <svg viewBox="0 0 5.99 9.86">
-                      <polyline points="5.24 9.11 1.06 4.93 5.24 0.75" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"></polyline>
-                    </svg>
-                  </div> -->
+
+
+
+
+                <div id="grid-container">
+
+                        <div class="col-1 grid-card">
+                            <div class="grid_img"></div>
+                            <div id="grid_artist_name"></div>                             
+                        </div>
+                        <div class="col-2 grid-card">
+                            <div class="grid_img"></div>
+                            <div id="grid_artist_name"></div>                             
+                        </div>
+                        <div class="col-3 grid-card">
+                            <div class="grid_img"></div>
+                            <div id="grid_artist_name"></div>                             
+                        </div>
+
+                        
+
+                </div>
             </div>
 
 
@@ -881,9 +925,18 @@
              for (let i = 0; i < 10; i++) {
                 let Artist_img_url = UserTopArtist_list[i].images[0].url
                  document.querySelector(`#top_artist_${i+1}`).style.backgroundImage=`url(${Artist_img_url})`
+                 document.querySelector(`.col-${i+1}>.grid_img`).style.backgroundImage=`url(${Artist_img_url})`
                  let Artist_name = UserTopArtist_list[i].name
                  document.querySelector(`#top_artist_${i+1}>.artist_name`).innerText = Artist_name
+                 document.querySelector(`.col-${i+1}>#grid_artist_name`).innerText = Artist_name
+
+
+                 
              }
+
+
+            
+
 
             console.log(allGenres);
 
@@ -1191,5 +1244,14 @@ cards.concat(cards).concat(cards).forEach((item, i) => {
 
 
     </script> -->
+    <script>
+        document.querySelector('.fieldMode').addEventListener("click",cancelLooping)
+        function cancelLooping() {
+            console.log("TEST");
+            
+            trigger.kill(); // 停止 ScrollTrigger 觸發效果
+            scrub.pause();   // 停止滾動控制動畫
+        }
+    </script>
 </body>
 </html>
