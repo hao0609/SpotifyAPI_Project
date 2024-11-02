@@ -750,7 +750,7 @@
 
                 <div id="grid-container">
 
-                        <div class="col-1 grid-card">
+                        <!-- <div class="col-1 grid-card">
                             <div class="grid_img"></div>
                             <div id="grid_artist_name"></div>                             
                         </div>
@@ -762,6 +762,14 @@
                             <div class="grid_img"></div>
                             <div id="grid_artist_name"></div>                             
                         </div>
+                        <div class="col-4 grid-card">
+                            <div class="grid_img"></div>
+                            <div id="grid_artist_name"></div>                             
+                        </div>
+                        <div class="col-5 grid-card">
+                            <div class="grid_img"></div>
+                            <div id="grid_artist_name"></div>                             
+                        </div> -->
 
                         
 
@@ -774,9 +782,26 @@
 
 
     </div>
+    <script>
+    let grid_innerText = ''
+
+    const grid_container = document.querySelector('#grid-container')
+    console.log(grid_container);
     
-  
-       
+
+     for (let i = 0; i < 9; i++) {
+
+        grid_innerText += `
+        <div class="col-${i+1} grid-card">
+            <div class="grid_img"></div>
+            <div id="grid_artist_name"></div>                             
+       </div>
+        `
+
+       grid_container.innerHTML += grid_innerText
+     }
+     console.log(grid_innerText);
+    </script>
     <script async src="authorization.js"></script>
     <script>
 
@@ -920,6 +945,9 @@
              let UserTopArtist_list = UserTopArtistData.items
 
              TopArtist_img_url = UserTopArtist_list[0].images[1].url //最愛藝人
+
+
+             
 
 
 
@@ -1109,8 +1137,8 @@ function scrubTo(totalTime) {    // 設置滾動時要到相對應的位置
 
   }
 
-    document.getElementById('arrow-right').addEventListener("click", () => movePlayhead(spacing)); // 點擊">"按鍵執行 movePlayhead()，並傳每張card 的動畫間隔延遲時間 
-    document.getElementById('arrow-left').addEventListener("click", () => movePlayhead(-spacing)); // 點擊">"按鍵執行 movePlayhead()，並傳每張card 的負的動畫間隔延遲時間
+    //document.getElementById('arrow-right').addEventListener("click", () => movePlayhead(spacing)); // 點擊">"按鍵執行 movePlayhead()，並傳每張card 的動畫間隔延遲時間 
+    //document.getElementById('arrow-left').addEventListener("click", () => movePlayhead(-spacing)); // 點擊">"按鍵執行 movePlayhead()，並傳每張card 的負的動畫間隔延遲時間
 
     // 針對每個動畫時間點進行時間線的移動
     function movePlayhead(amount) {
