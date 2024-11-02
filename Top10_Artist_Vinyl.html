@@ -531,7 +531,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            display: none;
+            /* display: none; */
         }
         #card-container .card{
 
@@ -653,6 +653,7 @@
             flex-wrap: wrap;
             width: 1200px;
             margin: auto;
+            display: none;
         }
         
         .row-1{
@@ -676,7 +677,7 @@
         .grid_img{
         width: 380px;
         height: 380px;
-        border: 1px solid red;
+        /* border: 1px solid red; */
         background-size: cover;
         }
 
@@ -721,7 +722,7 @@
             </header>
             <div class="wrapper" style="width: 100%;height: 100%;position: relative;transform-style: preserve-3d;">
                 <div class="change_mode">
-                    <div class="vinylMode">黑膠模式</div>  /  <div class="fieldMode"><a >欄位模式</a></div>
+                    <div class="vinylMode"><a >黑膠模式</a></div>  /  <div class="fieldMode"><a >欄位模式</a></div>
                 </div>
                 <div class="change_option">
                      <div class="genre"><a href="Top10_Genre_Vinyl.html">最愛的音樂風格</a></div>
@@ -1068,6 +1069,11 @@
  }
     </script>
       <script>
+
+scroll_function()
+function scroll_function() {
+            
+        
     let cards = gsap.utils.toArray(".card"), // 把所有 card 加入到 cards 陣列裡
     cardsToShow = 3, // 要顯示的 Card 數量
     zoomDuration = 1, // 動畫放大 ZoomIn 間隔時間
@@ -1080,7 +1086,6 @@
 
     
     // scrollTrigger 要得參數
-
     let iteration = 0; // 循環次數
     snap = gsap.utils.snap(spacing)  // 動畫透過 spacing 間隔進行切割
     scrub = gsap.to(seamlessLoop, { // 回歸 0 的動畫初始位置
@@ -1110,14 +1115,14 @@
 	});
 
 
-// 更新迴圈播放方向
-function wrapForward(trigger) { // 卡片最底時往後回歸0的函數
+    // 更新迴圈播放方向
+    function wrapForward(trigger) { // 卡片最底時往後回歸0的函數
 	iteration++;                // 循環次數+1
 	trigger.wrapping = true;    // 循環狀態設為 TRUE
 	trigger.scroll(trigger.start + 1);    
 }
 
-function wrapBackward(trigger) { // 卡片為0時往前回歸最底的函數
+    function wrapBackward(trigger) { // 卡片為0時往前回歸最底的函數
 	iteration--;                 // 循環次數-1
 	if (iteration < 0) {         // to keep the playhead from stopping at the beginning, we jump ahead 10 iterations
 		iteration = 9;
@@ -1128,7 +1133,7 @@ function wrapBackward(trigger) { // 卡片為0時往前回歸最底的函數
 	trigger.scroll(trigger.end - 1);
 }
 
-function scrubTo(totalTime) {    // 設置滾動時要到相對應的位置
+    function scrubTo(totalTime) {    // 設置滾動時要到相對應的位置
 	let progress = (totalTime - seamlessLoop.duration() * iteration) / seamlessLoop.duration();
 	if (progress > 1) {
 		wrapForward(trigger);
@@ -1140,9 +1145,9 @@ function scrubTo(totalTime) {    // 設置滾動時要到相對應的位置
 }
 
 
-  //每一張卡片的執行動畫函數
+    //每一張卡片的執行動畫函數
 
-  function cardAnimation(card) {
+    function cardAnimation(card) {
    // console.log("Initial card state:", card);
     
     
@@ -1192,8 +1197,8 @@ function scrubTo(totalTime) {    // 設置滾動時要到相對應的位置
       gsap.to(seamlessLoop, { totalTime: time, duration: spacing, overwrite: true });
 }
 
-//建立循環loop
-function buildSeamlessLoop(cards, spacing, animateFunc) {
+    //建立循環loop
+    function buildSeamlessLoop(cards, spacing, animateFunc) {
     window.scrollTo(0, 0.0000001)
     console.log("Building Seamless Loop");
   let rawSequence = gsap.timeline({ paused: true }),
@@ -1236,7 +1241,7 @@ cards.concat(cards).concat(cards).forEach((item, i) => {
 
 }
 
-
+}
         
     </script>
 
@@ -1298,12 +1303,35 @@ cards.concat(cards).concat(cards).forEach((item, i) => {
 
     </script> -->
     <script>
-        document.querySelector('.fieldMode').addEventListener("click",cancelLooping)
+        let grid_btn = document.querySelector('.fieldMode').addEventListener("click",cancelLooping)
+
+        let vinyl_btn = document.querySelector('.vinylMode').addEventListener("click",backLooping)
+
+        let card_container = document.querySelector('#card-container')
+
+        let grid_container = document.querySelector('#grid-container')
+
+
+
         function cancelLooping() {
-            console.log("TEST");
-            
+            console.log("TEST_grid");
+
+            card_container.style.display = "none"
+            grid_container.style.display = "flex"
+
+            window.scrollTo(0, 0)
             trigger.kill(); // 停止 ScrollTrigger 觸發效果
             scrub.pause();   // 停止滾動控制動畫
+        }
+
+
+        function backLooping() {
+            console.log("TEST_vinyl");
+
+            card_container.style.display = "flex"
+            grid_container.style.display = "none"
+            
+            scroll_function()
         }
     </script>
 </body>
