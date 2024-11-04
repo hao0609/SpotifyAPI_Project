@@ -1,5 +1,5 @@
 
-let login_btn = document.querySelector('#login_btn')
+let login_btn = document.querySelector('.login_btn')
 
 
 login_btn.addEventListener('click',get_authorization)
