@@ -33,7 +33,7 @@
 
     <style>
         body{
-            background-color: #ffffff;
+            background-color: #000000;
         }
         body,ul,h3{
 
@@ -202,7 +202,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color:#f0f2f0c1;
+            background-color:#f0f2f0e7;
             z-index: 1; 
         }
         .flex-center{
@@ -210,17 +210,18 @@
             align-items: center;
         }
         .title_box{
+            width: 1200px;
             flex: 1;
             display: flex;
             justify-content: space-evenly;
-            flex-direction:row;
+            flex-direction: column;
             z-index: 99;
-            padding: 10%;
             flex-wrap: wrap;
+            margin: auto;
         }
         .login{
             display: flex;
-            align-items: flex-end;
+            justify-content: center;
         }
         .btn{
             color: #000000;
@@ -262,6 +263,17 @@
             text-decoration: none;  
             width: fit-content;
             margin: auto;
+            color: #000000;
+            background-color: #1ed660;
+            border: none;
+            line-height: 20px;
+            border-radius: 25px;
+        }
+        .show_more_btn:hover{
+            cursor: pointer;
+            background-color: #3f3d3d;
+            border-radius: 100px;
+            color: white;
         }
 
         .rank_tittle{
@@ -325,8 +337,8 @@
         }
         .header_box{
             width: 1200px;
-            padding-left: 2%;
-            padding-right: 2%;
+            padding-left: 10%;
+            padding-right: 10%;
             display: flex;
             justify-content: space-between;
         }
@@ -372,12 +384,13 @@
             right: 15px;
             opacity: 0;
             transform: translate(600px, 150px); 
+            color: white;
 
         }
         .rank_tittle_bottom{
             position: absolute;
             top: 15px;
-            color: rgb(205, 205, 205);
+            color: rgba(205, 205, 205, 0.172);
             transform: translate(600px, 150px); 
             z-index: -1;
 
@@ -386,11 +399,12 @@
             position: absolute;
             left: 20px;
             transform: translate(-600px, 150px); 
+            color: white;
         }
         .top_tittle_bottom{
             position: absolute;
             top: 20px;
-            color: rgb(205, 205, 205);
+            color: rgba(205, 205, 205, 0.172);
             transform: translate(-600px, 150px); 
             z-index: -1;
         }
@@ -451,8 +465,11 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            margin:0px 50px;
-            background-color: #e8e8e8;
+            margin: 0px 50px;
+            background-color: #f6f6f6;
+            border-radius: 10px;
+            flex-wrap: wrap;
+            text-align: left;
         }
 
         .track_img{
@@ -497,14 +514,13 @@
             flex-direction: column;
             margin-top: 5%;
             padding: 0 5%;
-            background-color: #000000;
+            background-color: #3f3d3d;
             color: #ffffff;
 
         }
         .info_from{
             display: flex;
-            margin-left: 10rem;
-            margin-right: 10rem;
+
             padding: 2rem;
             text-align: center;
             align-items: center;
@@ -524,6 +540,42 @@
             width: 50%;
         }
 
+        @media screen and (max-width: 1200px){ 
+            .title_box { width: 100%}
+        }
+        @media screen and (max-width: 435px){ 
+            .rwd_font_50 { font-size: 50px;}
+            .rwd_hight_80 { height: 80px;}
+            .rwd_margin_10{margin: 10% 0;} 
+            .rwd_margin_5{margin: 5% 0;} 
+            .img_1 {width: 100px !important;height: 100px !important; left: 30% !important;}
+            .img_2 {width: 120px !important;height: 120px !important; top: 20% !important;left: 60% !important;}
+            .img_3 {width: 110px !important;height: 110px !important; top: 70% !important; left: 5% !important;}
+            .img_4 {width: 140px !important;height: 140px !important; top: 60% !important;left: 35% !important;}
+            .img_5 {width: 100px !important;height: 100px !important; top: 80% !important;left: 37% !important;}
+            .img_6 {width: 100px !important;height: 100px !important; top: 75% !important;left: 70% !important;}
+            .img_7 {width: 100px !important;height: 100px !important;}
+            .img_8 {width: 100px !important;height: 100px !important;}
+            .img_9 {width: 100px !important;height: 100px !important;}
+            .img_10 {width: 100px !important;height: 100px !important;}
+            .contury_box {margin-right: 10px;}
+            .top1_box{ text-align: center;}
+            .rank_num {width: 100%; order: -1;}
+            .info_icon>img{width: 80%;}
+
+        }
+        
+        .padding_10{
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+        .songname{   
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        
+
         
     </style>
     <title>Spotify API Project</title>
@@ -535,14 +587,14 @@
 
         <div class="content_box">
             <header>
-                <div class="header_box flex-center">
+                <div class="header_box flex-center padding_5">
                     <div class="logo flex-center" > LOGO</div>
                     <nav class="nav flex-center"> 
                         <ul class="menu flex-center">
                             <li>最新熱門</li>
-                            <li>網站說明</li>
+                            <!-- <li>網站說明</li>
                             <li>關於作者</li>
-                            <li>免責聲明</li>
+                            <li>免責聲明</li> -->
                             <li class="flex-center">
                                 <div class="flex-center" style="margin-right: 5px;">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -558,8 +610,8 @@
             <div class="title_box">
 
                     <div class="tittle">
-                            <h1>您似乎很懂聽 ?</h1>
-                            <h3>點擊 Log in 以登錄您的 Spotify 帳戶，並查看您的音樂品味分析<br>
+                            <h1 class="padding_10 rwd_font_50">您似乎很懂聽 ?</h1>
+                            <h3 class="padding_10">點擊 Log in 以登錄您的 Spotify 帳戶，並查看您的音樂品味分析<br>
                             透過分析結果立即向您的朋友炫耀您獨特而精緻的音樂品味。</h3>
                     </div>
                     <div class="login">
@@ -585,34 +637,34 @@
                 <div class="overlay">  </div>
                 <li data-depth="0.0" class="layer box"></li>
                 <li data-depth="-0.125555" class="layer">
-                    <div class="img_1 wave-back"></div>
+                    <div class="img_1 wave-back .rwd_ball_size"></div>
                 </li>
                 <li data-depth="0.35" class="layer">
-                    <div class="img_2 wave-front"></div>
+                    <div class="img_2 wave-front .rwd_ball_size"></div>
                 </li>
                 <li data-depth="-0.225555" class="layer">
-                    <div class="img_3 wave-front"></div>
+                    <div class="img_3 wave-front .rwd_ball_size"></div>
                 </li>
                 <li data-depth="0.55" class="layer">
-                    <div class="img_4 wave-back"></div>
+                    <div class="img_4 wave-back .rwd_ball_size"></div>
                 </li>
                 <li data-depth="-0.375555" class="layer">
-                    <div class="img_5 wave-back"></div>
+                    <div class="img_5 wave-back .rwd_ball_size"></div>
                 </li>
                 <li data-depth="0.75" class="layer">
-                    <div class="img_6 wave-front"></div>
+                    <div class="img_6 wave-front .rwd_ball_size"></div>
                 </li>
                 <li data-depth="-0.475555" class="layer">
-                    <div class="img_7 wave-back"></div>
+                    <div class="img_7 wave-back .rwd_ball_size"></div>
                 </li>
                 <li data-depth="0.95" class="layer">
-                    <div class="img_8 wave-back"></div>
+                    <div class="img_8 wave-back .rwd_ball_size"></div>
                 </li>
                 <li data-depth="-0.375555" class="layer">
-                    <div class="img_9 wave-front"></div>
+                    <div class="img_9 wave-front .rwd_ball_size"></div>
                 </li>
                 <li data-depth="0.65" class="layer">
-                    <div class="img_10 wave-front"></div>
+                    <div class="img_10 wave-front .rwd_ball_size"></div>
                 </li>
             
             </ul>
@@ -622,14 +674,14 @@
         </div>
 
         <div class="rank">
-             <div class="rank_title_box">
-                    <div class="rank_tittle h1 rank_tittle_top">最新熱門歌曲</div>
-                    <div class="rank_tittle h1 rank_tittle_bottom">最新熱門歌曲</div>
+             <div class="rank_title_box rwd_hight_80">
+                    <div class="rank_tittle h1 rank_tittle_top rwd_font_50">最新熱門歌曲</div>
+                    <div class="rank_tittle h1 rank_tittle_bottom rwd_font_50">最新熱門歌曲</div>
             </div>
 
-            <div class="top_title_box">
-                <div class="rank_tittle h1 top_tittle_top">Top 50</div>
-                <div class="rank_tittle h1 top_tittle_bottom">Top 50</div>
+            <div class="top_title_box rwd_hight_80">
+                <div class="rank_tittle h1 top_tittle_top rwd_font_50">Top 50</div>
+                <div class="rank_tittle h1 top_tittle_bottom rwd_font_50">Top 50</div>
             </div>
             
             
@@ -849,10 +901,10 @@
                     inner_Text += `
                    
                        <div class="top1_box margin_50">
-                           <div class="track_img" style="background-image: url(${images_url});">
+                           <div class="track_img rwd_margin_10" style="background-image: url(${images_url});">
                               
                             </div>
-                           <div class="rank_num">
+                           <div class="rank_num rwd_margin_5">
                                #${rank_num}
                            </div>
                            <div class="song">
@@ -860,7 +912,7 @@
                                <div class="artistname">${artistNames}</div>
                            </div>
 
-                           <div class="go_listen">
+                           <div class="go_listen rwd_margin_10">
                                <a href="${song_url}" target="_blank" id="listen_btn" class="btn listen_btn" ><h3 class="margin_btn"> Go Listen</h3></a>                   
                            </div>
                        </div>                       
@@ -879,7 +931,7 @@
                 
                 inner_Text += `               
                 <div class="show_more margin_50">
-                    <a  id="show_more_btn" class="btn show_more_btn" ><h3 class="margin_btn"> Show More </h3></a>                 
+                    <a  id="show_more_btn" class="show_more_btn" ><h3 class="margin_btn"> Show More </h3></a>                 
                 </div>              
                 `
                 rank_box.innerHTML =  inner_Text
