@@ -982,9 +982,16 @@
 
              let UserTopArtist_list = UserTopArtistData.items
 
-             TopArtist_img_url = UserTopArtist_list[0].images[1].url //最愛藝人
+             let allGenres = [];
 
+             for (let i = 0; i < UserTopArtist_list.length; i++) {
+                // UserTopArtist_list[i].genres
+                // console.log(UserTopArtist_list[i].genres);
+                allGenres = allGenres.concat(UserTopArtist_list[i].genres);
+                
+             }
 
+            console.log(allGenres);
 
 
 
