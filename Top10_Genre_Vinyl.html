@@ -750,16 +750,16 @@
                 </div>
                 <div id="card-container">
     
-                    <div id="top_artist_1" class="card pos-1"><div class="card_font"><h3>1</h3></div><div class="artist_name"></div></div>
-                    <div id="top_artist_2" class="card pos-2"><div class="card_font"><h3>2</h3></div><div class="artist_name"></div></div>
-                    <div id="top_artist_3" class="card pos-3"><div class="card_font"><h3>3</h3></div><div class="artist_name"></div></div>
-                    <div id="top_artist_4" class="card pos-4"><div class="card_font"><h3>4</h3></div><div class="artist_name"></div></div>
-                    <div id="top_artist_5" class="card hide"><div class="card_font"><h3>5</h3></div><div class="artist_name"></div></div>
-                    <div id="top_artist_6" class="card hide"><div class="card_font"><h3>6</h3></div><div class="artist_name"></div></div>
-                    <div id="top_artist_7" class="card hide"><div class="card_font"><h3>7</h3></div><div class="artist_name"></div></div>
-                    <div id="top_artist_8" class="card hide"><div class="card_font"><h3>8</h3></div><div class="artist_name"></div></div>
-                    <div id="top_artist_9" class="card hide"><div class="card_font"><h3>9</h3></div><div class="artist_name"></div></div>
-                    <div id="top_artist_10" class="card hide"><div class="card_font"><h3>10</h3></div><div class="artist_name"></div></div>
+                    <div id="top_genre_1" class="card pos-1"><div class="card_font"><h3>1</h3></div><div class="genre_name"></div></div>
+                    <div id="top_genre_2" class="card pos-2"><div class="card_font"><h3>2</h3></div><div class="genre_name"></div></div>
+                    <div id="top_genre_3" class="card pos-3"><div class="card_font"><h3>3</h3></div><div class="genre_name"></div></div>
+                    <div id="top_genre_4" class="card pos-4"><div class="card_font"><h3>4</h3></div><div class="genre_name"></div></div>
+                    <div id="top_genre_5" class="card hide"><div class="card_font"><h3>5</h3></div><div class="genre_name"></div></div>
+                    <div id="top_genre_6" class="card hide"><div class="card_font"><h3>6</h3></div><div class="genre_name"></div></div>
+                    <div id="top_genre_7" class="card hide"><div class="card_font"><h3>7</h3></div><div class="genre_name"></div></div>
+                    <div id="top_genre_8" class="card hide"><div class="card_font"><h3>8</h3></div><div class="genre_name"></div></div>
+                    <div id="top_genre_9" class="card hide"><div class="card_font"><h3>9</h3></div><div class="genre_name"></div></div>
+                    <div id="top_genre_10" class="card hide"><div class="card_font"><h3>10</h3></div><div class="genre_name"></div></div>
                 </div>
 
 
@@ -768,62 +768,62 @@
                 <div id="grid-container">
                     <div class="col-1 grid-card card_2">
                         <div class="card_font"><h3>2</h3></div>
-                        <div class="grid_img"></div>
+                        
                         <div id="grid_artist_name">artist_name</div>                             
                    </div>
                     
                     <div class="col-2 grid-card card_1">
                         <div class="card_font"><h3>1</h3></div>
-                        <div class="grid_img"></div>
+                        
                         <div id="grid_artist_name">artist_name</div>                             
                    </div>
                     
                     <div class="col-3 grid-card card_3">
                         <div class="card_font"><h3>3</h3></div>
-                        <div class="grid_img"></div>
+                        
                         <div id="grid_artist_name">artist_name</div>                            
                    </div>
 
 
                     <div class="col-1 grid-card card_5">
                         <div class="card_font"><h3>5</h3></div>
-                        <div class="grid_img"></div>
+                        
                         <div id="grid_artist_name">artist_name</div>                             
                    </div>
                     
                     <div class="col-2 grid-card card_4">
                         <div class="card_font"><h3>4</h3></div>
-                        <div class="grid_img"></div>
+                        
                         <div id="grid_artist_name">artist_name</div>                             
                    </div>
                     
                     <div class="col-3 grid-card card_6">
                         <div class="card_font"><h3>6</h3></div>
-                        <div class="grid_img"></div>
+                        
                         <div id="grid_artist_name">artist_name</div>                            
                    </div>
 
                     <div class="col-1 grid-card card_8">
                         <div class="card_font"><h3>8</h3></div>
-                        <div class="grid_img"></div>
+                        
                         <div id="grid_artist_name">artist_name</div>                             
                    </div>
                     
                     <div class="col-2 grid-card card_7">
                         <div class="card_font"><h3>7</h3></div>
-                        <div class="grid_img"></div>
+                        
                         <div id="grid_artist_name">artist_name</div>                             
                    </div>
                     
                     <div class="col-3 grid-card card_9">
                         <div class="card_font"><h3>9</h3></div>
-                        <div class="grid_img"></div>
+                        
                         <div id="grid_artist_name">artist_name</div>                            
                    </div>
 
                     <div class="col-2 grid-card card_10">
                         <div class="card_font"><h3>10</h3></div>
-                        <div class="grid_img"></div>
+                        
                         <div id="grid_artist_name">artist_name</div>                             
                    </div>
                     
@@ -1024,6 +1024,20 @@
             let genreTopName = genreTop[0]
 
             console.log(genreTopName);
+
+
+            for (let i = 0; i < 10; i++) {
+                let genre = sortedGenres[i][0]
+                
+                 document.querySelector(`#top_genre_${i+1}>.genre_name`).innerText = genre
+                
+
+
+                 
+             }
+
+
+            
 
             document.querySelector('#top_genres').innerText = genreTopName  //最愛風格
 
