@@ -48,6 +48,10 @@
 
       
         }
+        .color_white{
+            color: whitesmoke;
+        }
+
         h1{
             font-size: 60px;
             font-weight: bold;
@@ -576,7 +580,7 @@
                   </select>
             </div>
 
-            <div class="top_box">
+            <div class="top_box color_white">
                 <div class="genres flex width_300">
                     <div class="top_tittle">
                         <h3>最愛的音樂風格</h3>
@@ -741,7 +745,7 @@
 
             
             const UserProfileData = await UserProfile_response.json();
-            // console.log(UserProfileData);
+             console.log(UserProfileData);
 
             let userName = UserProfileData.display_name
             let userImage_url = UserProfileData.images[1].url
