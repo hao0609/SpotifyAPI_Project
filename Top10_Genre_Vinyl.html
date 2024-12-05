@@ -325,8 +325,8 @@
         }
         .header_box{
             width: 1200px;
-            padding-left: 2%;
-            padding-right: 2%;
+            padding-left: 10%;
+            padding-right: 10%;
             display: flex;
             justify-content: space-between;
         }
@@ -531,6 +531,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            /* display: none; */
         }
         #card-container .card{
 
@@ -546,7 +547,9 @@
             background-position: center;
             background-repeat: no-repeat;
         }
+
         .card_font{
+            position: absolute;
             width: 50px;
             height: 50px;
             background-color: #000000;
@@ -557,7 +560,7 @@
             justify-content: center;
             border-radius: 5px 0px 0px 0px;
         }
-        .track_name{
+        .artist_name{
             text-align: center;
             position: relative;
             top: 180px;            
@@ -566,6 +569,7 @@
             text-shadow: black 0.1em 0.1em 0.2em;
 
         }
+        a{ color: #000000; text-decoration: none;}
 
         .arrow svg{
             width: 10px;
@@ -602,11 +606,8 @@
             justify-content: space-evenly;
         }
         .genre a{
-            color: grey;
-            text-decoration: none;
-        }
-        .genre a:hover{
             color: black;
+            text-decoration: none;
         }
 
         .artist a{
@@ -616,9 +617,8 @@
         .artist a:hover{
             color: black;
         }
-        .track {
-
-            color: black;
+        .track a{
+            color: grey;
             text-decoration: none;
         }
         .track a:hover{
@@ -634,10 +634,12 @@
             margin: 10px 0;
         }
         .vinylMode{
-         margin: 0 5px;   
+         margin: 0 5px;  
+         cursor: pointer; 
         }
         .fieldMode{
-         margin: 0 5px;   
+         margin: 0 5px;  
+         cursor: pointer;  
         }
         .fieldMode a{
          color: grey;
@@ -648,6 +650,96 @@
         }
 
 
+        #grid-container{
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            width: 1200px;
+            margin: auto;
+            display: none;
+        }
+        
+        .row-1{
+            display: flex;
+        }
+
+
+
+        #grid-container .grid-card{
+
+            /* border: 1px solid; */
+        }
+        .col-1,.col-3{
+            margin-top: 50px;
+        }
+        /* .col-2{
+            margin-top: 20px;
+        } */
+
+
+        .grid_img{
+        width: 380px;
+        height: 380px;
+        /* border: 1px solid red; */
+        background-size: cover;
+        }
+        #grid_genre_name{
+            width: 380px;
+            height: 380px;
+            background-color: #dce0dcc2;
+            text-align: center;
+            font-size: 2rem;
+            text-transform: capitalize;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .genre_name{
+            color: black;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 10rem;
+            text-transform: capitalize;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #dce0dcc2;
+        }
+        @media screen and (max-width: 1200px){ 
+            #grid-container { width: 100% ; justify-content: center}
+            .time_box.mar.w-1200 {width: 100%; display: flex;justify-content: center}
+            
+        }
+
+
+        @media screen and (max-width: 430px){ 
+            #card-container .card {    
+                width: 400px;
+                height: 300px;} 
+            
+
+                .time_box.mar.w-1200 {    
+                width: 100%;                
+                display: flex;
+                justify-content: center;
+                margin-top: 5%;
+                margin-bottom: 5%;
+        }
+        .genre_name{font-size: 3rem;}
+        .card_1 {order: 1;}
+            .card_2 {order: 2;}
+            .card_3 {order: 3;}
+            .card_4 {order: 4;}
+            .card_5 {order: 5;}
+            .card_6 {order: 6;}
+            .card_7 {order: 7;}
+            .card_8 {order: 8;}
+            .card_9 {order: 9;}
+            .card_10 {order: 10;}
+            .grid-card {margin: 5% 0px;}
+    }
         
     </style>
     <title>Spotify API Project</title>
@@ -659,21 +751,23 @@
 
         <div class="content_box">
             <header>
-                <div class="header_box flex-center">
-                    <div class="logo flex-center" > LOGO</div>
+                <div class="header_box flex-center padding_5">
+                    <div class="logo flex-center" ><a href="index.html"> <img src="img/logo.png" alt=""></a></div>
                     <nav class="nav flex-center"> 
                         <ul class="menu flex-center">
-                            <li>最新熱門</li>
-                            <li>網站說明</li>
+                            <li><a href="index.html#rank">最新熱門</a></li>
+                            <!-- <li>網站說明</li>
                             <li>關於作者</li>
-                            <li>免責聲明</li>
-                            <li class="flex-center">
-                                <div class="flex-center" style="margin-right: 5px;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                        <path d="M16 7.992C16 3.58 12.416 0 8 0C3.584 0 0 3.58 0 7.992C0 10.422 1.104 12.612 2.832 14.082C2.848 14.098 2.864 14.098 2.864 14.114C3.008 14.226 3.152 14.338 3.312 14.45C3.392 14.498 3.456 14.561 3.536 14.625C4.8586 15.5202 6.41889 15.9991 8.016 16C9.61311 15.9991 11.1734 15.5202 12.496 14.625C12.576 14.577 12.64 14.514 12.72 14.465C12.864 14.354 13.024 14.242 13.168 14.13C13.184 14.114 13.2 14.114 13.2 14.098C14.896 12.611 16 10.422 16 7.992ZM8 14.993C6.496 14.993 5.12 14.513 3.984 13.714C4 13.586 4.032 13.459 4.064 13.331C4.15965 12.9842 4.29947 12.6512 4.48 12.34C4.656 12.036 4.864 11.764 5.12 11.524C5.36 11.284 5.648 11.061 5.936 10.885C6.24 10.709 6.56 10.581 6.912 10.485C7.26685 10.39 7.63264 10.3419 8 10.342C9.09075 10.3337 10.1415 10.7522 10.928 11.508C11.296 11.876 11.584 12.3077 11.792 12.803C11.904 13.091 11.984 13.3947 12.032 13.714C10.8512 14.5442 9.44343 14.9907 8 14.993ZM5.552 7.593C5.41131 7.27013 5.34043 6.92117 5.344 6.569C5.344 6.218 5.408 5.866 5.552 5.546C5.696 5.226 5.888 4.939 6.128 4.699C6.368 4.459 6.656 4.268 6.976 4.124C7.296 3.98 7.648 3.916 8 3.916C8.368 3.916 8.704 3.98 9.024 4.124C9.344 4.268 9.632 4.46 9.872 4.699C10.112 4.939 10.304 5.227 10.448 5.546C10.592 5.866 10.656 6.218 10.656 6.569C10.656 6.937 10.592 7.273 10.448 7.592C10.3098 7.9077 10.1145 8.19519 9.872 8.44C9.6271 8.68219 9.33963 8.87712 9.024 9.015C8.36272 9.28617 7.62128 9.28617 6.96 9.015C6.64437 8.87712 6.3569 8.68219 6.112 8.44C5.86925 8.19865 5.67864 7.91102 5.552 7.593ZM12.976 12.899C12.976 12.867 12.96 12.851 12.96 12.819C12.8029 12.3183 12.571 11.8443 12.272 11.413C11.9728 10.9786 11.6054 10.5953 11.184 10.278C10.8621 10.0357 10.5131 9.83169 10.144 9.67C10.3111 9.5582 10.4666 9.42989 10.608 9.287C10.8465 9.0515 11.056 8.7883 11.232 8.503C11.5876 7.92133 11.7707 7.25066 11.76 6.569C11.7652 6.06449 11.6672 5.56424 11.472 5.099C11.2795 4.65065 11.0025 4.24357 10.656 3.9C10.3092 3.56105 9.90226 3.28974 9.456 3.1C8.99007 2.90485 8.48911 2.80718 7.984 2.813C7.47882 2.8075 6.97786 2.90551 6.512 3.101C6.06084 3.28843 5.65256 3.56572 5.312 3.916C4.97128 4.26097 4.69973 4.66795 4.512 5.115C4.31678 5.58024 4.21877 6.08049 4.224 6.585C4.224 6.937 4.272 7.27267 4.368 7.592C4.464 7.928 4.592 8.232 4.768 8.519C4.928 8.807 5.152 9.063 5.392 9.303C5.536 9.447 5.696 9.57467 5.872 9.686C5.5013 9.85103 5.15206 10.0606 4.832 10.31C4.416 10.63 4.048 11.013 3.744 11.429C3.44227 11.8586 3.2101 12.3331 3.056 12.835C3.04 12.867 3.04 12.899 3.04 12.915C1.776 11.636 0.992 9.91 0.992 7.992C0.992 4.14 4.144 0.991 8 0.991C11.856 0.991 15.008 4.14 15.008 7.992C15.0059 9.83196 14.2753 11.5962 12.976 12.899Z" fill="black"/>
-                                    </svg>
-                                </div>
-                                Log in
+                            <li>免責聲明</li> -->
+                            <li class="flex-center"> 
+                                <a  class="login_btn" style="display: flex ;cursor: pointer;">
+                                    <div class="flex-center" style="margin-right: 5px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M16 7.992C16 3.58 12.416 0 8 0C3.584 0 0 3.58 0 7.992C0 10.422 1.104 12.612 2.832 14.082C2.848 14.098 2.864 14.098 2.864 14.114C3.008 14.226 3.152 14.338 3.312 14.45C3.392 14.498 3.456 14.561 3.536 14.625C4.8586 15.5202 6.41889 15.9991 8.016 16C9.61311 15.9991 11.1734 15.5202 12.496 14.625C12.576 14.577 12.64 14.514 12.72 14.465C12.864 14.354 13.024 14.242 13.168 14.13C13.184 14.114 13.2 14.114 13.2 14.098C14.896 12.611 16 10.422 16 7.992ZM8 14.993C6.496 14.993 5.12 14.513 3.984 13.714C4 13.586 4.032 13.459 4.064 13.331C4.15965 12.9842 4.29947 12.6512 4.48 12.34C4.656 12.036 4.864 11.764 5.12 11.524C5.36 11.284 5.648 11.061 5.936 10.885C6.24 10.709 6.56 10.581 6.912 10.485C7.26685 10.39 7.63264 10.3419 8 10.342C9.09075 10.3337 10.1415 10.7522 10.928 11.508C11.296 11.876 11.584 12.3077 11.792 12.803C11.904 13.091 11.984 13.3947 12.032 13.714C10.8512 14.5442 9.44343 14.9907 8 14.993ZM5.552 7.593C5.41131 7.27013 5.34043 6.92117 5.344 6.569C5.344 6.218 5.408 5.866 5.552 5.546C5.696 5.226 5.888 4.939 6.128 4.699C6.368 4.459 6.656 4.268 6.976 4.124C7.296 3.98 7.648 3.916 8 3.916C8.368 3.916 8.704 3.98 9.024 4.124C9.344 4.268 9.632 4.46 9.872 4.699C10.112 4.939 10.304 5.227 10.448 5.546C10.592 5.866 10.656 6.218 10.656 6.569C10.656 6.937 10.592 7.273 10.448 7.592C10.3098 7.9077 10.1145 8.19519 9.872 8.44C9.6271 8.68219 9.33963 8.87712 9.024 9.015C8.36272 9.28617 7.62128 9.28617 6.96 9.015C6.64437 8.87712 6.3569 8.68219 6.112 8.44C5.86925 8.19865 5.67864 7.91102 5.552 7.593ZM12.976 12.899C12.976 12.867 12.96 12.851 12.96 12.819C12.8029 12.3183 12.571 11.8443 12.272 11.413C11.9728 10.9786 11.6054 10.5953 11.184 10.278C10.8621 10.0357 10.5131 9.83169 10.144 9.67C10.3111 9.5582 10.4666 9.42989 10.608 9.287C10.8465 9.0515 11.056 8.7883 11.232 8.503C11.5876 7.92133 11.7707 7.25066 11.76 6.569C11.7652 6.06449 11.6672 5.56424 11.472 5.099C11.2795 4.65065 11.0025 4.24357 10.656 3.9C10.3092 3.56105 9.90226 3.28974 9.456 3.1C8.99007 2.90485 8.48911 2.80718 7.984 2.813C7.47882 2.8075 6.97786 2.90551 6.512 3.101C6.06084 3.28843 5.65256 3.56572 5.312 3.916C4.97128 4.26097 4.69973 4.66795 4.512 5.115C4.31678 5.58024 4.21877 6.08049 4.224 6.585C4.224 6.937 4.272 7.27267 4.368 7.592C4.464 7.928 4.592 8.232 4.768 8.519C4.928 8.807 5.152 9.063 5.392 9.303C5.536 9.447 5.696 9.57467 5.872 9.686C5.5013 9.85103 5.15206 10.0606 4.832 10.31C4.416 10.63 4.048 11.013 3.744 11.429C3.44227 11.8586 3.2101 12.3331 3.056 12.835C3.04 12.867 3.04 12.899 3.04 12.915C1.776 11.636 0.992 9.91 0.992 7.992C0.992 4.14 4.144 0.991 8 0.991C11.856 0.991 15.008 4.14 15.008 7.992C15.0059 9.83196 14.2753 11.5962 12.976 12.899Z" fill="black"/>
+                                        </svg>
+                                    </div>
+                                    Log in
+                                </a>
                             </li>
                         </ul>
                     </nav>
@@ -681,12 +775,12 @@
             </header>
             <div class="wrapper" style="width: 100%;height: 100%;position: relative;transform-style: preserve-3d;">
                 <div class="change_mode">
-                    <div class="vinylMode">黑膠模式</div>  /  <div class="fieldMode"><a href="">欄位模式</a></div>
+                    <div class="vinylMode"><a >黑膠模式</a></div>  /  <div class="fieldMode"><a >欄位模式</a></div>
                 </div>
                 <div class="change_option">
-                     <div class="genre"><a href="">最愛的音樂風格</a></div>
-                     <div class="artist"><a href="">最愛的藝人</a></div>
-                     <div class="track">最愛的歌曲</div>
+                     <div class="genre">最愛的音樂風格</a></div>
+                     <div class="artist"><a href="Top10_Artist_Vinyl.html">最愛的藝人</a></div>
+                     <div class="track"><a href="Top10_Track_Vinyl.html">最愛的歌曲</a></div>
                 </div>
                 <div class="time_box mar w-1200">
                     <select name="time" id="time" class="option_box" onchange="change_option()">
@@ -697,27 +791,87 @@
                 </div>
                 <div id="card-container">
     
-                    <div id="top_track_1" class="card pos-1"><div class="card_font"><h3>1</h3></div><div class="track_name"></div></div>
-                    <div id="top_track_2" class="card pos-2"><div class="card_font"><h3>2</h3></div><div class="track_name"></div></div>
-                    <div id="top_track_3" class="card pos-3"><div class="card_font"><h3>3</h3></div><div class="track_name"></div></div>
-                    <div id="top_track_4" class="card pos-4"><div class="card_font"><h3>4</h3></div><div class="track_name"></div></div>
-                    <div id="top_track_5" class="card hide"><div class="card_font"><h3>5</h3></div><div class="track_name"></div></div>
-                    <div id="top_track_6" class="card hide"><div class="card_font"><h3>6</h3></div><div class="track_name"></div></div>
-                    <div id="top_track_7" class="card hide"><div class="card_font"><h3>7</h3></div><div class="track_name"></div></div>
-                    <div id="top_track_8" class="card hide"><div class="card_font"><h3>8</h3></div><div class="track_name"></div></div>
-                    <div id="top_track_9" class="card hide"><div class="card_font"><h3>9</h3></div><div class="track_name"></div></div>
-                    <div id="top_track_10" class="card hide"><div class="card_font"><h3>10</h3></div><div class="track_name"></div></div>
+                    <div id="top_genre_1" class="card pos-1"><div class="card_font"><h3>1</h3></div><div class="genre_name"></div></div>
+                    <div id="top_genre_2" class="card pos-2"><div class="card_font"><h3>2</h3></div><div class="genre_name"></div></div>
+                    <div id="top_genre_3" class="card pos-3"><div class="card_font"><h3>3</h3></div><div class="genre_name"></div></div>
+                    <div id="top_genre_4" class="card pos-4"><div class="card_font"><h3>4</h3></div><div class="genre_name"></div></div>
+                    <div id="top_genre_5" class="card hide"><div class="card_font"><h3>5</h3></div><div class="genre_name"></div></div>
+                    <div id="top_genre_6" class="card hide"><div class="card_font"><h3>6</h3></div><div class="genre_name"></div></div>
+                    <div id="top_genre_7" class="card hide"><div class="card_font"><h3>7</h3></div><div class="genre_name"></div></div>
+                    <div id="top_genre_8" class="card hide"><div class="card_font"><h3>8</h3></div><div class="genre_name"></div></div>
+                    <div id="top_genre_9" class="card hide"><div class="card_font"><h3>9</h3></div><div class="genre_name"></div></div>
+                    <div id="top_genre_10" class="card hide"><div class="card_font"><h3>10</h3></div><div class="genre_name"></div></div>
                 </div>
-                  <!-- <div id="arrow-right" class="arrow" style="z-index:101;">
-                    <svg viewBox="0 0 5.99 9.86">
-                      <polyline points="5.24 9.11 1.06 4.93 5.24 0.75" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"></polyline>
-                    </svg>
-                  </div>
-                  <div id="arrow-left" class="arrow" style="z-index:101;">
-                    <svg viewBox="0 0 5.99 9.86">
-                      <polyline points="5.24 9.11 1.06 4.93 5.24 0.75" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"></polyline>
-                    </svg>
-                  </div> -->
+
+
+
+
+                <div id="grid-container">
+                    <div class="col-1 grid-card card_2">
+                        <div class="card_font"><h3>2</h3></div>
+                        
+                        <div id="grid_genre_name">genre_name</div>                             
+                   </div>
+                    
+                    <div class="col-2 grid-card card_1">
+                        <div class="card_font"><h3>1</h3></div>
+                        
+                        <div id="grid_genre_name">genre_name</div>                             
+                   </div>
+                    
+                    <div class="col-3 grid-card card_3">
+                        <div class="card_font"><h3>3</h3></div>
+                        
+                        <div id="grid_genre_name">genre_name</div>                            
+                   </div>
+
+
+                    <div class="col-1 grid-card card_5">
+                        <div class="card_font"><h3>5</h3></div>
+                        
+                        <div id="grid_genre_name">genre_name</div>                             
+                   </div>
+                    
+                    <div class="col-2 grid-card card_4">
+                        <div class="card_font"><h3>4</h3></div>
+                        
+                        <div id="grid_genre_name">genre_name</div>                             
+                   </div>
+                    
+                    <div class="col-3 grid-card card_6">
+                        <div class="card_font"><h3>6</h3></div>
+                        
+                        <div id="grid_genre_name">genre_name</div>                            
+                   </div>
+
+                    <div class="col-1 grid-card card_8">
+                        <div class="card_font"><h3>8</h3></div>
+                        
+                        <div id="grid_genre_name">genre_name</div>                             
+                   </div>
+                    
+                    <div class="col-2 grid-card card_7">
+                        <div class="card_font"><h3>7</h3></div>
+                        
+                        <div id="grid_genre_name">genre_name</div>                             
+                   </div>
+                    
+                    <div class="col-3 grid-card card_9">
+                        <div class="card_font"><h3>9</h3></div>
+                        
+                        <div id="grid_genre_name">genre_name</div>                            
+                   </div>
+
+                    <div class="col-2 grid-card card_10">
+                        <div class="card_font"><h3>10</h3></div>
+                        
+                        <div id="grid_genre_name">genre_name</div>                             
+                   </div>
+                    
+                    
+                        
+
+                </div>
             </div>
 
 
@@ -734,7 +888,7 @@
 
         window.addEventListener('load',doFirst)
           function doFirst() {
-           
+            
             // gsap.set(window, { scrollTo: { y: 0.0008009992109217181, autoKill: false } });
 
             let accessToken
@@ -837,10 +991,113 @@
                             'Authorization': `Bearer ${token}`
                         }
         });
- 
+        console.log(token)
+
+            
+            const UserProfileData = await UserProfile_response.json();
+            console.log(UserProfileData);
+
+            let userName = UserProfileData.display_name
+            let userImage_url = UserProfileData.images[1].url
+
+            console.log(userName);
+            console.log(userImage_url);
+            
+            // document.querySelector('.img_user').style.backgroundImage=`url(${userImage_url})`
+
+            // document.querySelector('.user_name>h3').innerText = userName
+            // document.querySelector('#userName').innerText = userName
+            
            
             console.log(token)
+            // 查詢 Spotify User Top Artist
+
+        let UserTopArtist_response = await fetch(`https://api.spotify.com/v1/me/top/artists?time_range=${time}&limit=50&offset=0`, {
+                 headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            const UserTopArtistData = await UserTopArtist_response.json();
+             console.log(UserTopArtistData.items)
+
+             let UserTopArtist_list = UserTopArtistData.items
+
+             let allGenres = [];
+
+             for (let i = 0; i < UserTopArtist_list.length; i++) {
+                // UserTopArtist_list[i].genres
+                // console.log(UserTopArtist_list[i].genres);
+                allGenres = allGenres.concat(UserTopArtist_list[i].genres);
+                
+             }
+
+            console.log(allGenres);
+
+
+
+            //  for (let i = 0; i < 10; i++) {
+            //     let Artist_img_url = UserTopArtist_list[i].images[0].url
+            //      document.querySelector(`#top_artist_${i+1}`).style.backgroundImage=`url(${Artist_img_url})`
+            //      document.querySelector(`.card_${i+1}>.grid_img`).style.backgroundImage=`url(${Artist_img_url})`
+            //      let Artist_name = UserTopArtist_list[i].name
+            //      document.querySelector(`#top_artist_${i+1}>.artist_name`).innerText = Artist_name
+            //      document.querySelector(`.card_${i+1}>#grid_artist_name`).innerText = Artist_name
+
+
+                 
+            //  }
+
+
             
+
+
+            // console.log(allGenres);
+
+            const genreCount = allGenres.reduce((acc, genre) => {
+            acc[genre] = (acc[genre] || 0) + 1;  // 如果 genre 已經存在於 acc 中，則次數加 1，否則初始化為 1
+            return acc;
+            }, {});
+
+            console.log(genreCount);
+            
+            const sortedGenres = Object.entries(genreCount)
+
+            .sort((a, b) => b[1] - a[1]);  // 根據出現次數（a[1] 和 b[1]）降序排列
+
+            // 顯示排序後的結果
+            console.log(sortedGenres);
+
+            let genreTop = sortedGenres[0]
+            let genreTopName = genreTop[0]
+
+            console.log(genreTopName);
+
+
+            for (let i = 0; i < 10; i++) {
+                let genre = sortedGenres[i][0]
+                console.log(genre);
+                
+                
+                 document.querySelector(`#top_genre_${i+1}>.genre_name`).innerText = genre
+                 document.querySelector(`.card_${i+1}>#grid_genre_name`).innerText = genre
+
+
+                 
+             }
+
+
+            
+
+            document.querySelector('#top_genres').innerText = genreTopName  //最愛風格
+
+            TopArtist_name = UserTopArtist_list[0].name
+            document.querySelector('#top_artist_name>h3').innerText = TopArtist_name
+            TopArtist_img_url = UserTopArtist_list[0].images[1].url //最愛藝人
+            console.log(TopArtist_img_url);
+            document.querySelector('#top_artist').style.backgroundImage=`url(${TopArtist_img_url})`
+
+
 
             // 查詢 Spotify User Top Track
             let UserTopTrack_response = await fetch(`https://api.spotify.com/v1/me/top/tracks?time_range=${time}&limit=50&offset=0`, {
@@ -856,19 +1113,14 @@
 
              TopTrack_name = UserTopTrack_list[0].name
 
-            //  document.querySelector('#top_track_name>h3').innerText = TopTrack_name
+             document.querySelector('#top_track_name>h3').innerText = TopTrack_name
 
-            //  TopTrack_img_url = UserTopTrack_list[0].album.images[1].url //最愛藝人圖片
+             TopTrack_img_url = UserTopTrack_list[0].album.images[1].url //最愛藝人圖片
 
-            //  document.querySelector('#top_track').style.backgroundImage=`url(${TopTrack_img_url})` //最愛歌曲圖片
+             document.querySelector('#top_track').style.backgroundImage=`url(${TopTrack_img_url})` //最愛歌曲圖片
 
 
-             for (let i = 0; i < 10; i++) {
-                let Track_img_url = UserTopTrack_list[i].album.images[0].url
-                 document.querySelector(`#top_track_${i+1}`).style.backgroundImage=`url(${Track_img_url})`
-                 let Track_name = UserTopTrack_list[i].name
-                 document.querySelector(`#top_track_${i+1}>.track_name`).innerText = Track_name
-             }
+
 
         }   
         
@@ -893,6 +1145,11 @@
  }
     </script>
       <script>
+
+scroll_function()
+function scroll_function() {
+            
+        
     let cards = gsap.utils.toArray(".card"), // 把所有 card 加入到 cards 陣列裡
     cardsToShow = 3, // 要顯示的 Card 數量
     zoomDuration = 1, // 動畫放大 ZoomIn 間隔時間
@@ -905,7 +1162,6 @@
 
     
     // scrollTrigger 要得參數
-
     let iteration = 0; // 循環次數
     snap = gsap.utils.snap(spacing)  // 動畫透過 spacing 間隔進行切割
     scrub = gsap.to(seamlessLoop, { // 回歸 0 的動畫初始位置
@@ -917,14 +1173,14 @@
     trigger = ScrollTrigger.create({    //滾動觸發
 		start: 0,
 		onUpdate(self) { //表示滾動軸的進度
-            console.log("Scroll progress:", self.progress);
+            //console.log("Scroll progress:", self.progress);
 			if (self.progress >= 1 && self.direction > 0 && !self.wrapping) {  // 如果 滾動軸 = 1 (代表到底) 和 滾動軸向下 和 滾動軸的動畫進度不處於循環狀態時
 				wrapForward(self);                                              // 去執行 往前移的動畫函數
 			} else if (Math.abs(self.progress) < 1e-5 && self.direction < 0 && !self.wrapping || window.scrollY==0) {  // 如果 滾動軸 = 0.0001 (非常靠近0，非常靠近頂端位置) 和 滾動軸向上 和 滾動軸的動畫進度不處於循環狀態時
 				wrapBackward(self);                                                     // 就去執行 往後移的動畫函數
 			} else {
               scrub.vars.totalTime = snap((iteration + self.progress) * seamlessLoop.duration());
-              console.log(scrub.vars.totalTime);
+              //console.log(scrub.vars.totalTime);
               
 				scrub.invalidate().restart(); // to improve performance, we just invalidate and restart the same tween. No need for overwrites or creating a new tween on each update.
 				self.wrapping = false;
@@ -935,14 +1191,14 @@
 	});
 
 
-// 更新迴圈播放方向
-function wrapForward(trigger) { // 卡片最底時往後回歸0的函數
+    // 更新迴圈播放方向
+    function wrapForward(trigger) { // 卡片最底時往後回歸0的函數
 	iteration++;                // 循環次數+1
 	trigger.wrapping = true;    // 循環狀態設為 TRUE
 	trigger.scroll(trigger.start + 1);    
 }
 
-function wrapBackward(trigger) { // 卡片為0時往前回歸最底的函數
+    function wrapBackward(trigger) { // 卡片為0時往前回歸最底的函數
 	iteration--;                 // 循環次數-1
 	if (iteration < 0) {         // to keep the playhead from stopping at the beginning, we jump ahead 10 iterations
 		iteration = 9;
@@ -953,7 +1209,7 @@ function wrapBackward(trigger) { // 卡片為0時往前回歸最底的函數
 	trigger.scroll(trigger.end - 1);
 }
 
-function scrubTo(totalTime) {    // 設置滾動時要到相對應的位置
+    function scrubTo(totalTime) {    // 設置滾動時要到相對應的位置
 	let progress = (totalTime - seamlessLoop.duration() * iteration) / seamlessLoop.duration();
 	if (progress > 1) {
 		wrapForward(trigger);
@@ -965,9 +1221,9 @@ function scrubTo(totalTime) {    // 設置滾動時要到相對應的位置
 }
 
 
-  //每一張卡片的執行動畫函數
+    //每一張卡片的執行動畫函數
 
-  function cardAnimation(card) {
+    function cardAnimation(card) {
    // console.log("Initial card state:", card);
     
     
@@ -979,15 +1235,15 @@ function scrubTo(totalTime) {    // 設置滾動時要到相對應的位置
       // {Y 軸回歸位置為 0px  , 卡片回歸比例到 100% , 順序最上面 , 動畫線性變化為平滑，時間為放大時間，將卡片設為完全可見}, 動畫延遲時間 
 
 
-      .to(card, {autoAlpha: 0, duration: fadeDuration, ease: "power1.out" }); //淡出動畫
+      .to(card, {autoAlpha: 0, zIndex: 0,duration: fadeDuration, ease: "power1.out" }); //淡出動畫
       // {卡片透明度設為0  , 時間為淡出時間 , 順序最上面 , 動畫線性變化為平滑}
 
       
 
   }
 
-    document.getElementById('arrow-right').addEventListener("click", () => movePlayhead(spacing)); // 點擊">"按鍵執行 movePlayhead()，並傳每張card 的動畫間隔延遲時間 
-    document.getElementById('arrow-left').addEventListener("click", () => movePlayhead(-spacing)); // 點擊">"按鍵執行 movePlayhead()，並傳每張card 的負的動畫間隔延遲時間
+    //document.getElementById('arrow-right').addEventListener("click", () => movePlayhead(spacing)); // 點擊">"按鍵執行 movePlayhead()，並傳每張card 的動畫間隔延遲時間 
+    //document.getElementById('arrow-left').addEventListener("click", () => movePlayhead(-spacing)); // 點擊">"按鍵執行 movePlayhead()，並傳每張card 的負的動畫間隔延遲時間
 
     // 針對每個動畫時間點進行時間線的移動
     function movePlayhead(amount) {
@@ -1017,8 +1273,8 @@ function scrubTo(totalTime) {    // 設置滾動時要到相對應的位置
       gsap.to(seamlessLoop, { totalTime: time, duration: spacing, overwrite: true });
 }
 
-//建立循環loop
-function buildSeamlessLoop(cards, spacing, animateFunc) {
+    //建立循環loop
+    function buildSeamlessLoop(cards, spacing, animateFunc) {
     window.scrollTo(0, 0.0000001)
     console.log("Building Seamless Loop");
   let rawSequence = gsap.timeline({ paused: true }),
@@ -1061,8 +1317,106 @@ cards.concat(cards).concat(cards).forEach((item, i) => {
 
 }
 
-
+}
         
+    </script>
+
+    <!-- <script>
+        console.log("TEST");
+
+         
+       
+
+
+        setTimeout(() => {
+
+            const targetDiv = document.querySelector("#card-container div[style*='z-index: 100']");
+            console.log(targetDiv);
+
+
+            if (targetDiv) {
+            targetDiv.addEventListener('mouseover', (e) => {
+                e.target.style.height = "800px";
+            });
+            
+            targetDiv.addEventListener('mouseout', (e) => {
+                e.target.style.height = "500px";
+            });
+        }
+
+            
+        }, 1000);
+
+       
+        window.addEventListener('scroll',()=>{
+
+
+        setTimeout(() => {
+            const targetDiv = document.querySelector("#card-container div[style*='z-index: 100']");
+            console.log(targetDiv);
+            console.log("Test");
+            
+            if (targetDiv) {
+            targetDiv.addEventListener('mouseover', (e) => {
+                e.target.style.height = "800px";
+            });
+            
+            targetDiv.addEventListener('mouseout', (e) => {
+                e.target.style.height = "500px";
+            });
+            }
+        }, 500);
+
+            
+        })
+
+
+
+
+
+
+
+
+    </script> -->
+    <script>
+        let grid_btn = document.querySelector('.fieldMode').addEventListener("click",cancelLooping)
+
+        let vinyl_btn = document.querySelector('.vinylMode').addEventListener("click",backLooping)
+
+        let card_container = document.querySelector('#card-container')
+
+        let grid_container = document.querySelector('#grid-container')
+
+
+
+        function cancelLooping() {
+            console.log("TEST_grid");
+            window.scrollTo(0, 0)
+            card_container.style.display = "none"
+            grid_container.style.display = "flex"
+
+            document.querySelector('.fieldMode>a').style.color="black"
+            document.querySelector('.vinylMode>a').style.color="grey"
+
+
+            
+            trigger.kill(); // 停止 ScrollTrigger 觸發效果
+            scrub.pause();   // 停止滾動控制動畫
+        }
+
+
+        function backLooping() {
+            console.log("TEST_vinyl");
+
+
+            document.querySelector('.fieldMode>a').style.color="grey"
+            document.querySelector('.vinylMode>a').style.color="black"
+
+            card_container.style.display = "flex"
+            grid_container.style.display = "none"
+            
+            scroll_function()
+        }
     </script>
 </body>
 </html>
