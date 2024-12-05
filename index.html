@@ -829,8 +829,13 @@
         const Global_Top50_Playlist = async (playlistId) => {
         // Spotify 播放列表的 ID
         const token = await getSpotifyToken();
+        
+        console.log(token);
+        
 
-         playlistId =  playlistId || '37i9dQZEVXbMDoHDwVN2tF'
+         playlistId =  playlistId || '37i9dQZEVXbNG2KDcFcKOF'
+         console.log(playlistId);
+         
         // let playlistId = '37i9dQZEVXbMDoHDwVN2tF';
 
         // https://api.spotify.com/v1/playlists/${playlistId}/tracks?offset=10&limit=40
